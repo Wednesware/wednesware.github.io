@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wednesware</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/3c254bebea.js" crossorigin="anonymous"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #050505;
+    color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-image {
+    width: 20em;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(6rem, 18vw, 16rem);
+    font-weight: 800;
+    letter-spacing: -0.08em;
+    line-height: 0.9;
+}
+
+.divider {
+    width: 64px;
+    height: 1px;
+    background: rgba(255,255,255,.4);
+    margin: 2rem auto;
+}
+
+.subtitle {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.scroll-text {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #aaa;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+.project-title {
+    font-size: clamp(6rem, 18vw, 15rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.nitrogen {
+    background-image: linear-gradient(
+        90deg,
+        #ff4d4d,
+        #ffb84d,
+        #ff4d9d
+    );
+    animation-duration: 5s;
+}
+
+.magnesium {
+    background-image: linear-gradient(
+        90deg,
+        #4dd4ff,
+        #4dff88,
+        #7a4dff
+    );
+    animation-duration: 6.5s;
+}
+
+.helium {
+    background-image: linear-gradient(
+        90deg,
+        #ffd54d,
+        #ff6fd8,
+        #4de1ff
+    );
+    animation-duration: 7.5s;
+}
+
+.lithium {
+    background-image: linear-gradient(
+        90deg,
+        #00e1ff,
+        #008cff,
+        #4de1ff
+    );
+    animation-duration: 7.5s;
+}
+
+.project-desc {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: #777;
+    line-height: 1.7;
+    margin-top: 1.5rem;
+}
+
+.buttons {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: .9rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity .2s ease;
+}
+
+.btn:hover { opacity: .7; }
+
+.btn-primary {
+    background: white;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.btn-secondary {
+    border: 1px solid #333;
+    color: white;
+}
+
+.icon {
+    font-size: clamp(6rem, 18vw, 15rem);
+    line-height: 1;
+
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 6s ease infinite;
+}
+
+.icon-nitrogen {
+    background-image: linear-gradient(90deg, #ff4d4d, #ffb84d, #ff4d9d);
+    animation-duration: 5s;
+}
+
+.icon-magnesium {
+    background-image: linear-gradient(90deg, #4dd4ff, #4dff88, #7a4dff);
+    animation-duration: 6.5s;
+}
+
+.icon-helium {
+    background-image: linear-gradient(90deg, #ffd54d, #ff6fd8, #4de1ff);
+    animation-duration: 7.5s;
+}
+
+.icon-lithium {
+    background-image: linear-gradient(90deg, #00e1ff, #008cff, #4de1ff);
+    animation-duration: 7.5s;
+}
+
+.down-arrow {
+    color: #aaa;
+    font-size: 3em;
+}
+
+.code {
+  display: block;
+  padding: 1rem;
+  background: #111;
+  color: #ddd;
+  font-family: monospace;
+  overflow-x: auto;
+  border-radius: 8px;
+  font-size: 3em;
+}
+
+.red {
+    color: #e65757;
+}
+
+.yellow {
+    color: #bae61b
+}
+
+.info {
+    font-size: 2em;
+}
+
+#bgTint {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    transition: background 0.6s ease;
+    background: #050505;
+}
+
+footer {
+    text-align: center;
+    color: #555;
+    padding: 4rem 0;
+}
+</style>
+</head>
+
+<body>
+<div id="bgTint"></div>
+<section>
+    <div class="container">
+        <img src="transparentwhitegraphicnodeadspace.png" class="hero-image">
+        <h1 class="hero-title">Wednesware</h1>
+        <div class="divider"></div>
+        <p class="subtitle">Ever-growing open-source ecosystem.</p>
+        <p class="scroll-text">Scroll down to see what we made for you.</p>
+        <a href="#projects"><i class="fa-solid fa-angle-down down-arrow"></i></a>
+    </div>
+</section>
+
+<section data-color="nitrogen" id="projects">
+    <div class="container">
+        <div class="row">
+            <i class="fa-solid fa-download icon icon-nitrogen"></i>
+            <h2 class="project-title nitrogen">Nitrogen</h2>
+        </div>
+        <h3 class="info">aka <span class="red"><b>n2</b></span>, <span class="red"><b>wwn</b></span></h2>
+        <p class="project-desc">
+            Easy, ultra-light-weight installer for Wednesware publications.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn btn-primary"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+        <pre class="code"><code>pip <span class="yellow">install</span> wwn</code></pre>
+    </div>
+</section>
+
+<section data-color="magnesium">
+    <div class="container">
+        <div class="row">
+            <i class="fa-solid fa-microchip icon icon-magnesium"></i>
+            <h2 class="project-title magnesium">Magnesium</h2>
+        </div>
+        <p class="project-desc">
+            Shared library for all Wednesware publications.
+        </p>
+
+        <div class="buttons">
+            <a href="https://github.com/Wednesware/Magnesium" class="btn btn-primary"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> mg</code></pre>
+        - or -
+        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> magnesium</code></pre>
+    </div>
+</section>
+
+<section data-color="helium">
+    <div class="container">
+        <div class="row">
+            <i class="fa-solid fa-diagram-project icon icon-helium"></i>
+            <h2 class="project-title helium">Helium</h2>
+        </div>
+        <p class="project-desc">
+            Lightweight project creation framework.
+        </p>
+
+        <div class="buttons">
+            <a href="https://github.com/Wednesware/Magnesium" class="btn btn-primary"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> he</code></pre>
+        - or -
+        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> helium</code></pre>
+    </div>
+</section>
+
+<section data-color="lithium">
+    <div class="container">
+        <div class="row">
+            <i class="fa-regular fa-window-maximize icon icon-lithium"></i>
+            <h2 class="project-title lithium">Lithium</h2>
+        </div>
+        <p class="project-desc">
+            Lightweight project creation framework.
+        </p>
+
+        <div class="buttons">
+            <a href="https://github.com/Wednesware/Magnesium" class="btn btn-primary"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+        <div>
+            <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> li</code></pre>
+        </div>
+        - or -
+        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> lithium</code></pre>
+    </div>
+</section>
+
+<footer>
+    <a href="https://github.com/Wednesware" target="_blank">Wednesware</a>
+</footer>
+<script>
+const bg = document.getElementById("bgTint");
+
+const colors = {
+    base: [5, 5, 5],
+    nitrogen: [255, 77, 77],
+    magnesium: [77, 212, 255],
+    helium: [255, 213, 77],
+    lithium: [32, 120, 230]
+};
+
+const sections = [...document.querySelectorAll("section[data-color]")];
+
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
+
+function mix(c1, c2, t) {
+    return [
+        Math.round(lerp(c1[0], c2[0], t)),
+        Math.round(lerp(c1[1], c2[1], t)),
+        Math.round(lerp(c1[2], c2[2], t))
+    ];
+}
+
+function getScrollColor() {
+    const y = window.scrollY + window.innerHeight / 2;
+
+    // find closest section ABOVE scroll center
+    let a = sections[0];
+    let b = sections[sections.length - 1];
+
+    for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= y) {
+            a = sections[i];
+        }
+        if (sections[i].offsetTop > y) {
+            b = sections[i];
+            break;
+        }
+    }
+
+    const startY = a.offsetTop;
+    const endY = b.offsetTop || startY + 1;
+
+    const t = Math.min(1, Math.max(0, (y - startY) / (endY - startY)));
+
+    const c1 = colors[a.dataset.color];
+    const c2 = colors[b.dataset.color || a.dataset.color];
+
+    return mix(c1, c2, t);
+}
+
+function update() {
+    const [r, g, b] = getScrollColor();
+
+    bg.style.background = `
+        radial-gradient(
+            circle at center,
+            rgba(${r}, ${g}, ${b}, 0.14),
+            rgba(5,5,5,1) 70%
+        )
+    `;
+}
+
+window.addEventListener("scroll", update, { passive: true });
+update();
+</script>
+</body>
+</html>
