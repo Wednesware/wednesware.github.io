@@ -39,6 +39,14 @@ section {
     gap: 1rem;
 }
 
+.feature-row {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
 .hero-image {
     width: clamp(6rem, 18vw, 17rem);
     margin: auto;
@@ -77,19 +85,19 @@ section {
     font-size: clamp(6rem, 18vw, 15rem);
     font-weight: 800;
     letter-spacing: -0.05em;
-
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-
-    animation: gradientMove 6s ease infinite;
 }
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+.textbg {
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .nitrogen {
@@ -99,6 +107,7 @@ section {
         #ffb84d,
         #ff4d9d
     );
+    animation: gradientMove 6s ease infinite;
     animation-duration: 5s;
 }
 
@@ -109,6 +118,7 @@ section {
         #4dff88,
         #7a4dff
     );
+    animation: gradientMove 6s ease infinite;
     animation-duration: 6.5s;
 }
 
@@ -119,6 +129,7 @@ section {
         #ff6fd8,
         #4de1ff
     );
+    animation: gradientMove 6s ease infinite;
     animation-duration: 7.5s;
 }
 
@@ -129,6 +140,7 @@ section {
         #008cff,
         #4de1ff
     );
+    animation: gradientMove 6s ease infinite;
     animation-duration: 7.5s;
 }
 
@@ -179,6 +191,31 @@ section {
     animation: gradientMove 6s ease infinite;
 }
 
+.feature-title {
+    font-size: clamp(2rem, 2.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    padding-right: 1rem;
+}
+
+.feature-icon {
+    font-size: clamp(2rem, 2.5vw, 2rem);
+    line-height: 1.5;
+
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 6s ease infinite;
+}
+.feature-desc {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: #777;
+    line-height: 0.05;
+    margin-top: 1.5rem;
+}
+
 .icon-nitrogen {
     background-image: linear-gradient(90deg, #ff4d4d, #ffb84d, #ff4d9d);
     animation-duration: 5s;
@@ -215,16 +252,64 @@ section {
   font-size: 3em;
 }
 
-.red {
-    color: #e65757;
-}
-
 .yellow {
     color: #bae61b
 }
 
 .info {
     font-size: 2em;
+}
+
+.cc {
+    cursor: pointer;
+    position: relative;
+}
+
+.copy-popup {
+    position: fixed;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fadeOut 1s forwards;
+}
+
+.beta-tag {
+    display: inline-block;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: white;
+    text-shadow:
+        -1px -1px 0 rgba(0, 0, 0, 0.3),
+         1px -1px 0 rgba(0, 0, 0, 0.3),
+        -1px  1px 0 rgba(0, 0, 0, 0.3),
+         1px  1px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 140, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.25em 0.75em;
+    transform: translateY(-60px);
+    background-size: 300% 300%;
+    /* <p class="beta-tag lithium">BETA</p> */
+}
+
+.black {
+    color: #000;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 #bgTint {
@@ -261,7 +346,7 @@ footer {
     <div class="container">
         <div class="row">
             <i class="fa-solid fa-download icon icon-nitrogen"></i>
-            <h2 class="project-title nitrogen">Nitrogen</h2>
+            <h2 class="project-title nitrogen textbg">Nitrogen</h2>
         </div>
         <h3 class="info">aka <span class="red"><b>n2</b></span>, <span class="red"><b>wwn</b></span></h2>
         <p class="project-desc">
@@ -271,7 +356,29 @@ footer {
         <div class="buttons">
             <a href="https://github.com/Wednesware/Nitrogen" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <pre class="code"><code>pip <span class="yellow">install</span> wwn</code></pre>
+        <pre><code class="code cc"><span class="yellow">pipx</span> install <span class="nitrogen textbg">wwn</span></code></pre>
+        <div class="divider"></div>
+        <div class="feature-row">
+            <i class="fa-solid fa-cube feature-icon icon-nitrogen"></i>
+            <h2 class="feature-title nitrogen textbg">NitroDep</h2>
+            <p class="feature-desc">
+                Smart installation of dependencies on supported software.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-gauge-high feature-icon icon-nitrogen"></i>
+            <h2 class="feature-title nitrogen textbg">Blazing fast!</h2>
+            <p class="feature-desc">
+                Standard installations average 0.35 seconds.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-file-circle-check feature-icon icon-nitrogen"></i>
+            <h2 class="feature-title nitrogen textbg">Officially supported</h2>
+            <p class="feature-desc">
+                Publications always up to date and verified
+            </p>
+        </div>
     </div>
 </section>
 
@@ -279,7 +386,7 @@ footer {
     <div class="container">
         <div class="row">
             <i class="fa-solid fa-microchip icon icon-magnesium"></i>
-            <h2 class="project-title magnesium">Magnesium</h2>
+            <h2 class="project-title magnesium textbg">Magnesium</h2>
         </div>
         <p class="project-desc">
             Shared library for all Wednesware publications.
@@ -288,7 +395,50 @@ footer {
         <div class="buttons">
             <a href="https://github.com/Wednesware/Magnesium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> magnesium</code></pre>
+        <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="magnesium textbg">magnesium</span></code></pre>
+        <div class="divider"></div>
+        <div class="feature-row">
+            <i class="fa-solid fa-laptop-code feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Logging</h2>
+            <p class="feature-desc">
+                Formatted logging and sublogging for cleaner, more readable output.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-palette feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Color</h2>
+            <p class="feature-desc">
+                ANSI-based coloring with 140+ CSS-inspired styles and RGB support.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-gear feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Config</h2>
+            <p class="feature-desc">
+                Define PYON files and access configuration values with ease.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-cubes feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Groups</h2>
+            <p class="feature-desc">
+                Group objects with custom rules for organisation, debugging, and access control.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-shield-halved feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Handle</h2>
+            <p class="feature-desc">
+                Transform exceptions into formatted logs with a single decorator.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-bars-staggered feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Lists</h2>
+            <p class="feature-desc">
+                Greatly expanded list classes to handle selection, navigation, multidimensionality and game worlds.
+            </p>
+        </div>
     </div>
 </section>
 
@@ -296,7 +446,7 @@ footer {
     <div class="container">
         <div class="row">
             <i class="fa-solid fa-diagram-project icon icon-helium"></i>
-            <h2 class="project-title helium">Helium</h2>
+            <h2 class="project-title helium textbg">Helium</h2>
         </div>
         <p class="project-desc">
             Game and project creation framework.
@@ -305,7 +455,29 @@ footer {
         <div class="buttons">
             <a href="https://github.com/Wednesware/Helium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> helium</code></pre>
+        <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="helium textbg">helium</span></code></pre>
+        <div class="divider"></div>
+        <div class="feature-row">
+            <i class="fa-solid fa-circle-nodes feature-icon icon-helium"></i>
+            <h2 class="feature-title helium textbg">Projects</h2>
+            <p class="feature-desc">
+                Create and manage modular projects with zero boilerplate.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-scroll feature-icon icon-helium"></i>
+            <h2 class="feature-title helium textbg">Scripts</h2>
+            <p class="feature-desc">
+                Organize project logic into dynamically loaded scripts.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-cubes-stacked feature-icon icon-helium"></i>
+            <h2 class="feature-title helium textbg">Resources</h2>
+            <p class="feature-desc">
+                Store reusable classes and components as project resources.
+            </p>
+        </div>
     </div>
 </section>
 
@@ -313,7 +485,7 @@ footer {
     <div class="container">
         <div class="row">
             <i class="fa-regular fa-window-maximize icon icon-lithium"></i>
-            <h2 class="project-title lithium">Lithium</h2>
+            <h2 class="project-title lithium textbg">Lithium</h2>
         </div>
         <p class="project-desc">
             Game and project creation framework.
@@ -322,7 +494,7 @@ footer {
         <div class="buttons">
             <a href="https://github.com/Wednesware/Lithium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <pre><code class="code"><span class="red"><b>n2</b></span> <span class="yellow">get</span> lithium</code></pre>
+        <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="lithium textbg">lithium</span></code></pre>
     </div>
 </section>
 
@@ -393,6 +565,23 @@ function update() {
         )
     `;
 }
+
+document.querySelectorAll(".cc").forEach(code => {
+    code.addEventListener("click", async e => {
+        await navigator.clipboard.writeText(code.innerText);
+
+        const popup = document.createElement("div");
+        popup.className = "copy-popup";
+        popup.textContent = "Copied!";
+
+        popup.style.left = `${e.clientX}px`;
+        popup.style.top = `${e.clientY - 30}px`;
+
+        document.body.appendChild(popup);
+
+        setTimeout(() => popup.remove(), 1000);
+    });
+});
 
 window.addEventListener("scroll", update, { passive: true });
 update();
