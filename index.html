@@ -196,6 +196,7 @@ section {
     font-weight: 800;
     letter-spacing: -0.05em;
     padding-right: 1rem;
+    white-space: nowrap;
 }
 
 .feature-icon {
@@ -212,8 +213,8 @@ section {
 .feature-desc {
     font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     color: #777;
-    line-height: 0.05;
     margin-top: 1.5rem;
+    transform: translateY(-20px);
 }
 
 .icon-nitrogen {
@@ -376,7 +377,7 @@ footer {
             <i class="fa-solid fa-file-circle-check feature-icon icon-nitrogen"></i>
             <h2 class="feature-title nitrogen textbg">Officially supported</h2>
             <p class="feature-desc">
-                Publications always up to date and verified
+                Publications always up to date and verified.
             </p>
         </div>
     </div>
@@ -398,45 +399,26 @@ footer {
         <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="magnesium textbg">magnesium</span></code></pre>
         <div class="divider"></div>
         <div class="feature-row">
-            <i class="fa-solid fa-laptop-code feature-icon icon-magnesium"></i>
-            <h2 class="feature-title magnesium textbg">Logging</h2>
+            <i class="fa-solid fa-terminal feature-icon icon-magnesium"></i>
+            <h2 class="feature-title magnesium textbg">Logging & Color</h2>
             <p class="feature-desc">
-                Formatted logging and sublogging for cleaner, more readable output.
+                Beautiful terminal output with formatted logging, sublogging, 140+ CSS-inspired colors, and RGB support.
             </p>
         </div>
-        <div class="feature-row">
-            <i class="fa-solid fa-palette feature-icon icon-magnesium"></i>
-            <h2 class="feature-title magnesium textbg">Color</h2>
-            <p class="feature-desc">
-                ANSI-based coloring with 140+ CSS-inspired styles and RGB support.
-            </p>
-        </div>
+
         <div class="feature-row">
             <i class="fa-solid fa-gear feature-icon icon-magnesium"></i>
-            <h2 class="feature-title magnesium textbg">Config</h2>
+            <h2 class="feature-title magnesium textbg">Handle & Config</h2>
             <p class="feature-desc">
-                Define PYON files and access configuration values with ease.
+                Simplify application setup with PYON-based configuration and automatic exception handling through decorators.
             </p>
         </div>
+
         <div class="feature-row">
             <i class="fa-solid fa-cubes feature-icon icon-magnesium"></i>
-            <h2 class="feature-title magnesium textbg">Groups</h2>
+            <h2 class="feature-title magnesium textbg">Lists & Groups</h2>
             <p class="feature-desc">
-                Group objects with custom rules for organisation, debugging, and access control.
-            </p>
-        </div>
-        <div class="feature-row">
-            <i class="fa-solid fa-shield-halved feature-icon icon-magnesium"></i>
-            <h2 class="feature-title magnesium textbg">Handle</h2>
-            <p class="feature-desc">
-                Transform exceptions into formatted logs with a single decorator.
-            </p>
-        </div>
-        <div class="feature-row">
-            <i class="fa-solid fa-bars-staggered feature-icon icon-magnesium"></i>
-            <h2 class="feature-title magnesium textbg">Lists</h2>
-            <p class="feature-desc">
-                Greatly expanded list classes to handle selection, navigation, multidimensionality and game worlds.
+                Powerful collection tools for organising objects, navigating multidimensional data, and managing complex structures.
             </p>
         </div>
     </div>
@@ -449,7 +431,7 @@ footer {
             <h2 class="project-title helium textbg">Helium</h2>
         </div>
         <p class="project-desc">
-            Game and project creation framework.
+            Game and project creation library.
         </p>
 
         <div class="buttons">
@@ -495,6 +477,28 @@ footer {
             <a href="https://github.com/Wednesware/Lithium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
         <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="lithium textbg">lithium</span></code></pre>
+        <div class="divider"></div>
+        <div class="feature-row">
+            <i class="fa-solid fa-feather-pointed feature-icon icon-lithium"></i>
+            <h2 class="feature-title lithium textbg">Tkinter-based</h2>
+            <p class="feature-desc">
+                Fast, cross-platform control panel.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-bars-progress feature-icon icon-lithium"></i>
+            <h2 class="feature-title lithium textbg">Versatile tooling</h2>
+            <p class="feature-desc">
+                Perfect for quick debug checks and long runtime scans.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-wand-sparkles feature-icon icon-lithium"></i>
+            <h2 class="feature-title lithium textbg">Squeaky clean!</h2>
+            <p class="feature-desc">
+                No ads, distractions or useless features. Built for speed and performance.
+            </p>
+        </div>
     </div>
 </section>
 
