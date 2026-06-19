@@ -133,6 +133,34 @@ section {
     animation-duration: 7.5s;
 }
 
+.sodium {
+    background-image: linear-gradient(
+        90deg,
+        #00ff15,
+        #0d460b,
+        #0a8006
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
+.rainbow {
+    background-image: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #0000ff,
+        #8b00ff
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
 .lithium {
     background-image: linear-gradient(
         90deg,
@@ -181,7 +209,7 @@ section {
 
 .icon {
     font-size: clamp(6rem, 18vw, 15rem);
-    line-height: 1;
+    line-height: 1.2;
 
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -232,6 +260,11 @@ section {
     animation-duration: 7.5s;
 }
 
+.icon-sodium {
+    background-image: linear-gradient(90deg, #00ff15, #0d460b, #0a8006);
+    animation-duration: 7.5s;
+}
+
 .icon-lithium {
     background-image: linear-gradient(90deg, #00e1ff, #008cff, #4de1ff);
     animation-duration: 7.5s;
@@ -251,6 +284,12 @@ section {
   overflow-x: auto;
   border-radius: 8px;
   font-size: 3em;
+}
+
+.code-il {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    display: inline;
+    padding: 0.15em 0.35em;
 }
 
 .yellow {
@@ -278,21 +317,17 @@ section {
     animation: fadeOut 1s forwards;
 }
 
-.beta-tag {
+.unrel {
     display: inline-block;
     font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     color: white;
-    text-shadow:
-        -1px -1px 0 rgba(0, 0, 0, 0.3),
-         1px -1px 0 rgba(0, 0, 0, 0.3),
-        -1px  1px 0 rgba(0, 0, 0, 0.3),
-         1px  1px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 140, 255, 0.3);
+    background-color: #aa4444;
+    box-shadow: 0 4px 15px #aa4444;
     border-radius: 8px;
     padding: 0.25em 0.75em;
     transform: translateY(-60px);
     background-size: 300% 300%;
-    /* <p class="beta-tag lithium">BETA</p> */
+    /* <p class="unrel">CONCEPT</p> */
 }
 
 .black {
@@ -357,7 +392,7 @@ footer {
         <div class="buttons">
             <a href="https://github.com/Wednesware/Nitrogen" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <pre><code class="code cc"><span class="yellow">pipx</span> install <span class="nitrogen textbg">wwn</span></code></pre>
+        <pre><code class="code cc"><span class="yellow"><b>pipx</b></span> install <span class="nitrogen textbg">wwn</span></code></pre>
         <div class="divider"></div>
         <div class="feature-row">
             <i class="fa-solid fa-cube feature-icon icon-nitrogen"></i>
@@ -463,6 +498,45 @@ footer {
     </div>
 </section>
 
+<section data-color="sodium" id="sodium">
+    <div class="container">
+        <div class="row">
+            <i class="fa-solid fa-plug icon icon-sodium"></i>
+            <h2 class="project-title sodium textbg">Sodium</h2>
+        </div>
+        <p class="unrel">CONCEPT</p>
+        <p class="project-desc">
+            Get official and community-made plug-ins and extensions to expand your publications.
+        </p>
+        <div class="buttons">
+            <a href="https://github.com/Wednesware/Sodium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+        <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="sodium textbg">sodium</span></code></pre>
+        <div class="divider"></div>
+        <div class="feature-row">
+            <i class="fa-solid fa-plug-circle-check feature-icon icon-sodium"></i>
+            <h2 class="feature-title sodium textbg">PlugDep & UniDep</h2>
+            <p class="feature-desc">
+                Easily install necessary plug-ins with <code class="code code-il cc"><span class="sodium textbg"><b>na</b></span> getdep</code>, or <code class="code code-il cc"><span class="sodium textbg"><b>na</b></span> uniget</code> to install <span class="nitrogen textbg">Nitrogen</span> dependencies as well with one command.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-code-fork feature-icon icon-sodium"></i>
+            <h2 class="feature-title sodium textbg">Based on Nitrogen</h2>
+            <p class="feature-desc">
+                Uses the same syntax, smart features and tricks as <span class="nitrogen textbg">Nitrogen</span>. New <span class="nitrogen textbg">Nitrogen</span> releases are shortly mirrored in <span class="sodium textbg">Sodium</span>.
+            </p>
+        </div>
+        <div class="feature-row">
+            <i class="fa-solid fa-file-shield feature-icon icon-sodium"></i>
+            <h2 class="feature-title sodium textbg">Malware-free guarantee</h2>
+            <p class="feature-desc">
+                Plug-ins are checked for slow or unsafe code before every release and update.
+            </p>
+        </div>
+    </div>
+</section>
+
 <section data-color="lithium" id="lithium">
     <div class="container">
         <div class="row">
@@ -472,7 +546,6 @@ footer {
         <p class="project-desc">
             GUI-based admin console for debugging and testing while your code runs.
         </p>
-
         <div class="buttons">
             <a href="https://github.com/Wednesware/Lithium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
@@ -510,10 +583,11 @@ const bg = document.getElementById("bgTint");
 
 const colors = {
     base: [5, 5, 5],
-    nitrogen: [255, 77, 77],
-    magnesium: [77, 212, 255],
-    helium: [255, 213, 77],
-    lithium: [32, 120, 230]
+    nitrogen: [255, 77, 90],
+    magnesium: [41, 207, 255],
+    helium: [255, 122, 217],
+    sodium: [0, 201, 26],
+    lithium: [0, 184, 255]
 };
 
 const sections = [...document.querySelectorAll("section[data-color]")];
