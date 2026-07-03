@@ -613,7 +613,7 @@ footer {
         <div class="divider"></div>
         <p class="subtitle">Ever-growing open-source ecosystem.</p>
         <div class="buttons">
-            <a href="inbox/index.html" class="btn btn-primary" target="_blank"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="inbox.html" class="btn btn-primary"><i class="fa-solid fa-inbox"></i> Inbox</a>
             <a href="https://github.com/Wednesware" class="btn btn-github" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             <a href="https://discord.gg/phc3RDSjsr" class="btn btn-discord" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
             <a href="https://pypi.org/user/wednesware/" class="btn btn-pypi" target="_blank"><i class="fa-brands fa-python"></i> PyPI</a>
@@ -639,7 +639,6 @@ footer {
             </p>
         </summary>
         <div class="container">
-
             <div class="buttons">
                 <a href="https://github.com/Wednesware/Nitrogen" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
                 <a href="https://pypi.org/project/wwn/" class="btn btn-pypi" target="_blank"><i class="fa-brands fa-python"></i> PyPI</a>
@@ -1035,40 +1034,6 @@ document.querySelectorAll(".cc").forEach(code => {
 
 window.addEventListener("scroll", update, { passive: true });
 update();
-
-async function loadRelease(card) {
-    const owner = "Wednesware";
-    const repo = card.dataset.repo;
-
-    try {
-        const res = await fetch(
-            `https://api.github.com/repos/${owner}/${repo}/releases/latest`
-        );
-        const release = await res.json();
-
-        card.innerHTML = `
-            <div class="release-version">${release.tag_name}</div>
-            <div class="release-date">
-                ${new Date(release.published_at).toLocaleDateString()}
-            </div>
-
-            <div class="release-notes">
-                ${(release.body || "No release notes.").slice(0, 400)}
-            </div>
-
-            <a class="release-download"
-               href="${release.html_url}"
-               target="_blank">
-                View Release
-            </a>
-        `;
-    } catch (e) {
-        card.innerHTML = `<div>Failed to load release</div>`;
-    }
-}
-
-document.querySelectorAll(".release-card")
-    .forEach(loadRelease);
 </script>
 </body>
 </html>

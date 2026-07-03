@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wednesware</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/3c254bebea.js" crossorigin="anonymous"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+.top-menu a:hover::before {
+    opacity: .25;
+}
+
+
+.top-menu a:active {
+    transform: scale(.95);
+}
+
+body {
+    background: #050505;
+    color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    padding: 4rem 1.5rem;
+}
+
+#wednesware {
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.feature-row {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.divider {
+    width: 64px;
+    height: 1px;
+    background: rgba(255,255,255,.4);
+    margin: 2rem auto;
+}
+
+.subtitle {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.scroll-text {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #aaa;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+.project-title {
+    font-size: clamp(6rem, 18vw, 15rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.article-title {
+    font-size: 1.5em;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.article-icon {
+    font-size: 2em;
+    line-height: 1.2em;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.textbg {
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nitrogen {
+    background-image: linear-gradient(
+        90deg,
+        #ff4d4d,
+        #ffb84d,
+        #ff4d9d
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 5s;
+}
+
+.magnesium {
+    background-image: linear-gradient(
+        90deg,
+        #4dd4ff,
+        #4dff88,
+        #7a4dff
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 6.5s;
+}
+
+.helium {
+    background-image: linear-gradient(
+        90deg,
+        #ffd54d,
+        #ff6fd8,
+        #4de1ff
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+}
+
+.sodium {
+    background-image: linear-gradient(
+        90deg,
+        #00ff15,
+        #0d460b,
+        #0a8006
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
+.krypton {
+    background-image: linear-gradient(
+        90deg,
+        #ff0000,
+        #bd3838,
+        #ee6f6f
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
+.oxygen {
+    background-image: linear-gradient(
+        90deg,
+        #886926,
+        #008cff,
+        #f83232
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
+.lithium {
+    background-image: linear-gradient(
+        90deg,
+        #00e1ff,
+        #008cff,
+        #4de1ff
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+}
+
+.rainbow {
+    background-image: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #0000ff,
+        #8b00ff
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
+.project-desc {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: #777;
+    line-height: 1.7;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.buttons {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: .9rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity .2s ease;
+}
+
+.btn:hover { opacity: .7; }
+
+.btn-primary {
+    background: white;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.btn-github {
+    background: #303030;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-discord {
+    background: #5865F2;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-pypi {
+    background: #006D77;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-secondary {
+    border: 1px solid #333;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.icon {
+    font-size: clamp(6rem, 18vw, 15rem);
+    line-height: 1.5;
+}
+
+.down-arrow {
+    color: #aaa;
+    font-size: 3em;
+}
+
+.code {
+  display: block;
+  padding: 1rem;
+  background: #111;
+  color: #ddd;
+  font-family: monospace;
+  overflow-x: auto;
+  border-radius: 8px;
+  font-size: 3em;
+}
+
+.code-il {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    display: inline;
+    padding: 0.15em 0.35em;
+}
+
+.yellow {
+    color: #bae61b
+}
+
+.info {
+    font-size: 2em;
+}
+
+.cc {
+    cursor: pointer;
+    position: relative;
+}
+
+.copy-popup {
+    position: fixed;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fadeOut 1s forwards;
+}
+
+.unrel {
+    display: inline-block;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: white;
+    background-color: #ff8800;
+    box-shadow: 0 4px 15px #aa4444;
+    border-radius: 8px;
+    padding: 0.25em 0.75em;
+    transform: translateY(-60px);
+    background-size: 300% 300%;
+    /* <span class="unrel">WIP</span> */
+}
+
+.unrel-il {
+    display: inline-block;
+    font-size: 0.9em;
+    margin-left: 4px;
+    padding: 0px 4px 0px 4px;
+    color: white;
+    background-color: #ff8800;
+    box-shadow: 0 4px 15px #aa4444;
+    border-radius: 8px;
+    background-size: 300% 300%;
+    /* <span class="unrel-il">WIP</span> */
+}
+
+.black {
+    color: #000;
+}
+
+.cte-prompt {
+    color: #777;
+    font-size: 1.2rem;
+    line-height: 2em;
+    transition: opacity .3s ease;
+}
+
+.attribution,
+.attribution-icon {
+    padding-top: 1em;
+    color: #2b2b2b;
+    line-height: 1.2em;
+    margin-right: -0.5em;
+}
+
+.para {
+    color: #777;
+    padding-bottom: 1em;
+}
+
+details[open] .cte-prompt {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+#bgTint {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    transition: background 0.6s ease;
+    background: #050505;
+}
+
+details {
+    width: 100%;
+}
+
+details .container {
+    overflow: hidden;
+}
+
+details:not([open]) .container {
+    display: none;
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: none;
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+footer {
+    text-align: center;
+    color: #555;
+    padding: 4rem 0;
+}
+</style>
+</head>
+
+<body>
+<div id="bgTint"></div>
+</div>
+<section id="wednesware">
+    <div class="container">
+        <div class="row">
+            <i class="fa-solid fa-inbox icon"></i>
+            <h1 class="project-title">Inbox</h1>
+        </div>
+        <div class="divider"></div>
+        <p class="subtitle">Ever-growing open-source ecosystem.</p>
+        <div class="buttons">
+            <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-angle-left"></i>Back</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section>
+    <details>
+        <summary class="row">
+            <div class="row">
+                <i class="fa-solid fa-envelope article-icon"></i>
+                <h2 class="article-title">3.7.2026 | Welcome to Inbox - Your Wednesdaily Wednesware news outlet!</h2>
+            </div>
+            <p class="cte-prompt">
+                Click to read more
+            </p>
+        </summary>
+        <div class="container">
+            <p class="para">
+                This is the first post on Inbox! We know it's not Wednesday yet but we couldn't wait to share this with you!
+                Here, we'll post Wednesware-related news Wednesdaily™ (every Wednesday). Every post will contain a short recap on what the team's been up to for the last week, aswell as peeks at what will come next.
+            </p>
+            <p class="para">
+                We apologise in advance if a post comes late or a week is skipped! We're trying our best to provide sourced info about what to expect from us. Have a good rest of the week!
+            </p>
+
+            <span class="row"><i class="fa-solid fa-marker attribution-icon"></i><p class="attribution"><a href="https://github.com/u2752">Felix ❒ (u2752) from Wednesware</a></p></span>
+        </div>
+    </details>
+</section>
+
+<footer>
+    <p>When's where?</p>
+</footer>
+<script>
+function fitTitles() {
+    document.querySelectorAll(".row").forEach(row => {
+        const title = row.querySelector(".project-title");
+        if (!title) return;
+
+        let size = window.innerWidth * 0.18; // 18vw
+        title.style.fontSize = size + "px";
+
+        while (row.scrollWidth > row.clientWidth && size > 16) {
+            size -= 1;
+            title.style.fontSize = size + "px";
+        }
+    });
+}
+
+window.addEventListener("resize", fitTitles);
+fitTitles();
+
+document.querySelectorAll(".cc").forEach(code => {
+    code.addEventListener("click", async e => {
+        await navigator.clipboard.writeText(code.innerText);
+
+        const popup = document.createElement("div");
+        popup.className = "copy-popup";
+        popup.textContent = "Copied!";
+
+        popup.style.left = `${e.clientX}px`;
+        popup.style.top = `${e.clientY - 30}px`;
+
+        document.body.appendChild(popup);
+
+        setTimeout(() => popup.remove(), 1000);
+    });
+});
+
+window.addEventListener("scroll", update, { passive: true });
+update();
+
+async function loadRelease(card) {
+    const owner = "Wednesware";
+    const repo = card.dataset.repo;
+
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/releases/latest`
+        );
+        const release = await res.json();
+
+        card.innerHTML = `
+            <div class="release-version">${release.tag_name}</div>
+            <div class="release-date">
+                ${new Date(release.published_at).toLocaleDateString()}
+            </div>
+
+            <div class="release-notes">
+                ${(release.body || "No release notes.").slice(0, 400)}
+            </div>
+
+            <a class="release-download"
+               href="${release.html_url}"
+               target="_blank">
+                View Release
+            </a>
+        `;
+    } catch (e) {
+        card.innerHTML = `<div>Failed to load release</div>`;
+    }
+}
+
+document.querySelectorAll(".release-card")
+    .forEach(loadRelease);
+</script>
+</body>
+</html>
