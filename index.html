@@ -44,6 +44,7 @@ html {
 .top-menu a {
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 
     color: #aaa;
     text-decoration: none;
@@ -200,13 +201,6 @@ section {
 .hero-image {
     width: clamp(6rem, 18vw, 17rem);
     margin: auto;
-}
-
-.hero-title {
-    font-size: clamp(6rem, 18vw, 15rem);
-    font-weight: 800;
-    letter-spacing: -0.08em;
-    line-height: 0.9;
 }
 
 .divider {
@@ -374,6 +368,12 @@ section {
 .btn-primary {
     background: white;
     color: black;
+    margin-bottom: 15px;
+}
+
+.btn-github {
+    background: #303030;
+    color: white;
     margin-bottom: 15px;
 }
 
@@ -598,8 +598,8 @@ footer {
     <a class="nitrogen-nav" href="#nitrogen">Nitrogen</a>
     <a class="magnesium-nav" href="#magnesium">Magnesium</a>
     <a class="helium-nav" href="#helium">Helium</a>
-    <a class="sodium-nav" href="#sodium">Sodium <span class="unrel-il">WIP</p></a>
-    <a class="krypton-nav" href="#krypton">Krypton <span class="unrel-il">WIP</span></a>
+    <a class="sodium-nav" href="#sodium"><span>Sodium <span class="unrel-il">WIP</p></span></a>
+    <a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>
     <a class="oxygen-nav" href="#oxygen">Oxygen</a>
     <!--<a class="lithium-nav" href="#lithium">Lithium</a>-->
 </nav>
@@ -608,12 +608,13 @@ footer {
     <div class="container">
         <div class="row">
             <img src="transparentwhitesquare.png" class="hero-image">
-            <h1 class="hero-title">Wednesware</h1>
+            <h1 class="project-title">Wednesware</h1>
         </div>
         <div class="divider"></div>
         <p class="subtitle">Ever-growing open-source ecosystem.</p>
         <div class="buttons">
-            <a href="https://github.com/Wednesware" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="inbox/index.html" class="btn btn-primary" target="_blank"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="https://github.com/Wednesware" class="btn btn-github" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             <a href="https://discord.gg/phc3RDSjsr" class="btn btn-discord" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
             <a href="https://pypi.org/user/wednesware/" class="btn btn-pypi" target="_blank"><i class="fa-brands fa-python"></i> PyPI</a>
             <a href="mailto:wednesware@gmail.com" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-envelope"></i> Contact us</a>
@@ -930,6 +931,24 @@ footer {
     <p>hi :)</p>
 </footer>
 <script>
+function fitTitles() {
+    document.querySelectorAll(".row").forEach(row => {
+        const title = row.querySelector(".project-title");
+        if (!title) return;
+
+        let size = window.innerWidth * 0.18; // 18vw
+        title.style.fontSize = size + "px";
+
+        while (row.scrollWidth > row.clientWidth && size > 16) {
+            size -= 1;
+            title.style.fontSize = size + "px";
+        }
+    });
+}
+
+window.addEventListener("resize", fitTitles);
+fitTitles();
+    
 const bg = document.getElementById("bgTint");
 
 const colors = {
@@ -1016,6 +1035,40 @@ document.querySelectorAll(".cc").forEach(code => {
 
 window.addEventListener("scroll", update, { passive: true });
 update();
+
+async function loadRelease(card) {
+    const owner = "Wednesware";
+    const repo = card.dataset.repo;
+
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/releases/latest`
+        );
+        const release = await res.json();
+
+        card.innerHTML = `
+            <div class="release-version">${release.tag_name}</div>
+            <div class="release-date">
+                ${new Date(release.published_at).toLocaleDateString()}
+            </div>
+
+            <div class="release-notes">
+                ${(release.body || "No release notes.").slice(0, 400)}
+            </div>
+
+            <a class="release-download"
+               href="${release.html_url}"
+               target="_blank">
+                View Release
+            </a>
+        `;
+    } catch (e) {
+        card.innerHTML = `<div>Failed to load release</div>`;
+    }
+}
+
+document.querySelectorAll(".release-card")
+    .forEach(loadRelease);
 </script>
 </body>
 </html>
