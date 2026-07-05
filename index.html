@@ -25,6 +25,7 @@ html {
     align-items: center;
     justify-content: center;
     gap: .6rem;
+    overflow: visible;
 
     padding: 0.6rem;
     border-radius: 999px;
@@ -35,10 +36,74 @@ html {
     border: 1px solid rgba(255,255,255,.08);
 
     z-index: 1000;
+    transition: all 0.35s cubic-bezier(.2,1.5,.5,1);
+}
 
+.menu-links {
+    display: flex;
+    gap: .6rem;
+
+    overflow: visible;
+    width: max-content;
+
+    opacity: 1;
+    transition: opacity .25s;
+}
+
+.top-menu.collapsed .menu-links {
+    max-width: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.top-menu.collapsed {
+    width: 56px;
+}
+
+.top-menu:not(.collapsed) {
+    width: fit-content;
+}
+
+.top-menu:not(.collapsed) #menuToggle {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+}
+
+#menuToggle {
+    all: unset;
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 999px;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 1.15rem;
+
+    padding-left: 0.5em;
+
+    transition: opacity .2s;
+}
+
+#menuToggle:hover {
+    color: white;
+    transform:
+        scale(1.12);
     transition:
-        background .4s ease,
-        transform .4s cubic-bezier(.2,1.5,.5,1);
+        transform .3s cubic-bezier(.2,1.5,.5,1),
+        padding .3s ease,
+        color .3s ease,
+        background-position .8s ease;
+}
+
+.top-menu-r {
+    left: auto;
+    right: 1.5rem;
+    transform: none;
 }
 
 .top-menu a {
@@ -65,8 +130,6 @@ html {
 
 /* Hover animation */
 .top-menu a:hover {
-    color: white;
-
     transform:
         scale(1.12);
 
@@ -76,6 +139,14 @@ html {
     color: #000;
 
     background-position: 100% 50%;
+}
+
+.top-menu-r {
+    transition: opacity .3s ease;
+}
+
+.top-menu-r a:hover {
+    color: #fff;
 }
 
 .wednesware-nav:hover {
@@ -593,15 +664,25 @@ footer {
 
 <body>
 <div id="bgTint"></div>
-<nav class="top-menu">
-    <a class="wednesware-nav" href="#wednesware">Wednesware</a>
-    <a class="nitrogen-nav" href="#nitrogen">Nitrogen</a>
-    <a class="magnesium-nav" href="#magnesium">Magnesium</a>
-    <a class="helium-nav" href="#helium">Helium</a>
-    <a class="sodium-nav" href="#sodium"><span>Sodium <span class="unrel-il">WIP</p></span></a>
-    <a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>
-    <a class="oxygen-nav" href="#oxygen">Oxygen</a>
-    <!--<a class="lithium-nav" href="#lithium">Lithium</a>-->
+<nav class="top-menu collapsed" id="topMenu">
+    <button id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="menu-links">
+        <a class="wednesware-nav" href="#wednesware">Wednesware</a>
+        <a class="nitrogen-nav" href="#nitrogen">Nitrogen</a>
+        <a class="magnesium-nav" href="#magnesium">Magnesium</a>
+        <a class="helium-nav" href="#helium">Helium</a>
+        <a class="sodium-nav" href="#sodium"><span>Sodium <span class="unrel-il">WIP</p></span></a>
+        <a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>
+        <a class="oxygen-nav" href="#oxygen">Oxygen</a>
+        <!--<a class="lithium-nav" href="#lithium">Lithium</a>-->
+    </div>
+</nav>
+
+<nav class="top-menu top-menu-r" id="rightMenu">
+    <a class="inbox-nav" href="inbox.html"><i class="fa-solid fa-inbox"></i> Inbox</a>
 </nav>
 </div>
 <section id="wednesware">
@@ -704,7 +785,7 @@ footer {
 
             <div class="feature-row">
                 <i class="fa-solid fa-gear feature-icon magnesium"></i>
-                <h2 class="feature-title magnesium textbg">Handle, Config and Paths</h2>
+                <h2 class="feature-title magnesium textbg">Handle, Config & Paths</h2>
                 <p class="feature-desc">
                     Simplify application setup with PYON-based configuration, automatic exception handling through decorators and easy file/path management.
                 </p>
@@ -918,7 +999,7 @@ footer {
 
             <div class="feature-row">
                 <i class="fa-solid fa-wand-sparkles feature-icon oxygen"></i>
-                <h2 class="feature-title oxygen textbg">Panels and terminal control</h2>
+                <h2 class="feature-title oxygen textbg">Panels & terminal control</h2>
                 <p class="feature-desc">
                     Customizable panels and tools to move around the terminal and output content.
                 </p>
@@ -927,17 +1008,42 @@ footer {
     </details>
 </section>
 <footer>
-    <p>hi :)</p>
+    <p>Page designed, developed and published by Daniel Mendez. No AI was used in the creation of this site.</p>
 </footer>
 <script>
+const topMenu = document.getElementById("topMenu");
+const rightMenu = document.getElementById("rightMenu");
+
+let closeTimer;
+
+function openMenu() {
+    topMenu.classList.remove("collapsed");
+    rightMenu.style.opacity = "0";
+    rightMenu.style.pointerEvents = "none";
+}
+
+function closeMenu() {
+    topMenu.classList.add("collapsed");
+    rightMenu.style.opacity = "1";
+    rightMenu.style.pointerEvents = "auto";
+}
+
+menuToggle.onclick = openMenu;
+
+topMenu.addEventListener("mouseenter", () => {
+    clearTimeout(closeTimer);
+});
+
+topMenu.addEventListener("mouseleave", () => {
+    closeTimer = setTimeout(closeMenu, 1000);
+});
+
 function fitTitles() {
     document.querySelectorAll(".row").forEach(row => {
         const title = row.querySelector(".project-title");
         if (!title) return;
-
         let size = window.innerWidth * 0.18; // 18vw
         title.style.fontSize = size + "px";
-
         while (row.scrollWidth > row.clientWidth && size > 16) {
             size -= 1;
             title.style.fontSize = size + "px";
@@ -977,11 +1083,8 @@ function mix(c1, c2, t) {
 
 function getScrollColor() {
     const y = window.scrollY + window.innerHeight / 2;
-
-    // find closest section ABOVE scroll center
     let a = sections[0];
     let b = sections[sections.length - 1];
-
     for (let i = 0; i < sections.length; i++) {
         if (sections[i].offsetTop <= y) {
             a = sections[i];
@@ -991,21 +1094,16 @@ function getScrollColor() {
             break;
         }
     }
-
     const startY = a.offsetTop;
     const endY = b.offsetTop || startY + 1;
-
     const t = Math.min(1, Math.max(0, (y - startY) / (endY - startY)));
-
     const c1 = colors[a.dataset.color];
     const c2 = colors[b.dataset.color || a.dataset.color];
-
     return mix(c1, c2, t);
 }
 
 function update() {
     const [r, g, b] = getScrollColor();
-
     bg.style.background = `
         radial-gradient(
             circle at center,
@@ -1014,24 +1112,18 @@ function update() {
         )
     `;
 }
-
 document.querySelectorAll(".cc").forEach(code => {
     code.addEventListener("click", async e => {
         await navigator.clipboard.writeText(code.innerText);
-
         const popup = document.createElement("div");
         popup.className = "copy-popup";
         popup.textContent = "Copied!";
-
         popup.style.left = `${e.clientX}px`;
         popup.style.top = `${e.clientY - 30}px`;
-
         document.body.appendChild(popup);
-
         setTimeout(() => popup.remove(), 1000);
     });
 });
-
 window.addEventListener("scroll", update, { passive: true });
 update();
 </script>
