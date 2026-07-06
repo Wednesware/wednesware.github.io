@@ -49,6 +49,12 @@ section {
 
 .row {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero {
+    font-size: 1px;
     gap: 1rem;
 }
 
@@ -83,9 +89,10 @@ section {
 }
 
 .project-title {
-    font-size: clamp(6rem, 18vw, 15rem);
+    font-size: 1em;
     font-weight: 800;
     letter-spacing: -0.03em;
+    line-height: 1;
 }
 
 .article-title {
@@ -264,8 +271,9 @@ section {
 }
 
 .icon {
-    font-size: clamp(6rem, 18vw, 15rem);
-    line-height: 1.5;
+    font-size: 1em;
+    line-height: 1;
+    flex-shrink: 0;
 }
 
 .down-arrow {
@@ -439,7 +447,7 @@ footer {
 </div>
 <section id="wednesware">
     <div class="container">
-        <div class="row">
+        <div class="row hero">
             <i class="fa-solid fa-inbox icon"></i>
             <h1 class="project-title">Inbox</h1>
         </div>
@@ -484,16 +492,15 @@ footer {
 </footer>
 <script>
 function fitTitles() {
-    document.querySelectorAll(".row").forEach(row => {
-        const title = row.querySelector(".project-title");
-        if (!title) return;
+    document.querySelectorAll(".hero").forEach(hero => {
+        const maxWidth = hero.parentElement.clientWidth;
+        let size = maxWidth * 0.18;
 
-        let size = window.innerWidth * 0.18; // 18vw
-        title.style.fontSize = size + "px";
+        hero.style.fontSize = size + "px";
 
-        while (row.scrollWidth > row.clientWidth && size > 16) {
-            size -= 1;
-            title.style.fontSize = size + "px";
+        while (hero.scrollWidth > maxWidth && size > 16) {
+            size--;
+            hero.style.fontSize = size + "px";
         }
     });
 }
@@ -517,7 +524,16 @@ document.querySelectorAll(".cc").forEach(code => {
         setTimeout(() => popup.remove(), 1000);
     });
 });
-
+function update() {
+    const [r, g, b] = getScrollColor();
+    bg.style.background = `
+        radial-gradient(
+            circle at center,
+            rgba(${r}, ${g}, ${b}, 0.14),
+            rgba(5,5,5,1) 70%
+        )
+    `;
+}
 window.addEventListener("scroll", update, { passive: true });
 update();
 
