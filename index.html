@@ -163,6 +163,16 @@ html {
     animation: gradientMove 5s ease infinite;
 }
 
+.lithium-nav:hover {
+    background-image: linear-gradient(
+        90deg,
+        #00e1ff,
+        #008cff,
+        #4de1ff
+    );
+    animation: gradientMove 7.5s ease infinite;
+}
+
 .magnesium-nav:hover {
     background-image: linear-gradient(
         90deg,
@@ -209,16 +219,6 @@ html {
         #886926,
         #008cff,
         #f83232
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-.lithium-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #00e1ff,
-        #008cff,
-        #4de1ff
     );
     animation: gradientMove 7.5s ease infinite;
 }
@@ -419,6 +419,23 @@ section {
     text-align: center;
 }
 
+.project-icons {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: #777;
+    line-height: 1.7;
+    margin-top: 1.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    display: flex;
+}
+
+.project-icons img {
+    width: 1em;
+    filter: brightness(50%)
+}
+
 .buttons {
     margin-top: 3rem;
     display: flex;
@@ -521,13 +538,25 @@ section {
 }
 
 .code-il {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     display: inline;
     padding: 0.15em 0.35em;
+    background: #111;
+    color: #ddd;
+    font-family: monospace;
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+.bold {
+    font-weight: 1000;
 }
 
 .yellow {
     color: #bae61b
+}
+
+.white {
+    color: white;
 }
 
 .info {
@@ -582,6 +611,11 @@ section {
     color: #000;
 }
 
+.small-bold {
+    color: #777;
+    font-weight: 1000;
+}
+
 .cte-prompt {
     color: #777;
     font-size: 1.2rem;
@@ -596,8 +630,6 @@ details[open] .cte-prompt {
     margin: 0;
     overflow: hidden;
 }
-
-
 
 @keyframes fadeOut {
     0% {
@@ -672,12 +704,12 @@ footer {
     <div class="menu-links">
         <a class="wednesware-nav" href="#wednesware">Wednesware</a>
         <a class="nitrogen-nav" href="#nitrogen">Nitrogen</a>
+        <a class="lithium-nav" href="#lithium">Lithium</a>
         <a class="magnesium-nav" href="#magnesium">Magnesium</a>
         <a class="helium-nav" href="#helium">Helium</a>
         <a class="sodium-nav" href="#sodium"><span>Sodium <span class="unrel-il">WIP</p></span></a>
         <a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>
         <a class="oxygen-nav" href="#oxygen">Oxygen</a>
-        <!--<a class="lithium-nav" href="#lithium">Lithium</a>-->
     </div>
 </nav>
 
@@ -715,6 +747,16 @@ footer {
             <p class="project-desc">
                 Easy, ultra-lightweight installer for Wednesware publications.
             </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <img src="pypimonochrome.png">
+            </div>
             <p class="cte-prompt">
                 Click to expand
             </p>
@@ -751,6 +793,71 @@ footer {
     </details>
 </section>
 
+<section data-color="lithium" id="lithium">
+    <details>
+        <summary>
+            <div class="row">
+                <i class="fa-solid fa-diamond icon lithium"></i>
+                <h2 class="project-title lithium textbg">Lithium</h2>
+                <span class="unrel">INDEV</span>
+            </div>
+            <h3 class="feature-desc info">aka <span class="lithium textbg"><b>wwli</b></span></h3>
+            <p class="project-desc">
+                Official interpreter and ecosystem for the Perkeo programming language.
+            </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <img src="pypimonochrome.png">
+               <span class="nitrogen textbg bold">n₂</span>
+            </div>
+            <p class="cte-prompt">
+                Click to expand
+            </p>
+        </summary>
+
+        <div class="container">
+            <div class="buttons">
+                <a href="https://github.com/Wednesware/Lithium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+            <p class="small-bold">CLI INSTALL (RECOMMENDED):</p>
+            <pre><code class="code cc"><span class="yellow"><b>pipx</b></span> install <span class="lithium textbg">wwli</span></code></pre>
+            <p class="small-bold">LIBRARY INSTALL:</p>
+            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="lithium textbg">lithium</span></code></pre>
+            <div class="divider"></div>
+
+            <div class="feature-row">
+                <i class="fa-solid fa-plug-circle-check feature-icon sodium"></i>
+                <h2 class="feature-title sodium textbg">PluginDep</h2>
+                <p class="feature-desc">
+                    Easily install necessary plugins.
+                </p>
+            </div>
+
+            <div class="feature-row">
+                <i class="fa-solid fa-code-fork feature-icon sodium"></i>
+                <h2 class="feature-title sodium textbg">Based on Nitrogen</h2>
+                <p class="feature-desc">
+                    <span class="nitrogen textbg">Nitrogen</span>'s syntax, smart features and tricks will also work in <span class="sodium textbg">Sodium</span>.
+                </p>
+            </div>
+
+            <div class="feature-row">
+                <i class="fa-solid fa-virus-covid-slash feature-icon sodium"></i>
+                <h2 class="feature-title sodium textbg">Malware-free guarantee</h2>
+                <p class="feature-desc">
+                    Plugins are checked for slow or unsafe code before every release and update.
+                </p>
+            </div>
+        </div>
+    </details>
+</section>
+
 <section data-color="magnesium" id="magnesium">
     <details>
         <summary>
@@ -761,6 +868,16 @@ footer {
             <p class="project-desc">
                 Shared library for all Wednesware publications.
             </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <span class="nitrogen textbg bold">n₂</span>
+            </div>
             <p class="cte-prompt">
                 Click to expand
             </p>
@@ -812,6 +929,16 @@ footer {
             <p class="project-desc">
                 Game and project creation library.
             </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <span class="nitrogen textbg bold">n₂</span>
+            </div>
             <p class="cte-prompt">
                 Click to expand
             </p>
@@ -864,6 +991,16 @@ footer {
             <p class="project-desc">
                 Get official and community-made plugins and extensions to expand your publications.
             </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <span class="nitrogen textbg bold">n₂</span>
+            </div>
             <p class="cte-prompt">
                 Click to expand
             </p>
@@ -916,6 +1053,16 @@ footer {
             <p class="project-desc">
                 Encrypt, encode, and compress files using methods such as XOR, Base64 encoding, and Zstandard compression.
             </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <span class="nitrogen textbg bold">n₂</span>
+            </div>
             <p class="cte-prompt">
                 Click to expand
             </p>
@@ -967,6 +1114,16 @@ footer {
             <p class="project-desc">
                 Smooth console animations, dynamic color gradients, formatted text panels and terminal control.
             </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <span class="nitrogen textbg bold">n₂</span>
+            </div>
             <p class="cte-prompt">
                 Click to expand
             </p>
@@ -1008,7 +1165,7 @@ footer {
     </details>
 </section>
 <footer>
-    <p>Page designed and developed by Vesperyn. No AI was used in the creation of this site.</p>
+    <p>Page designed and developed by Vesperyn (ves.dev). No AI was used in the creation of this site.</p>
 </footer>
 <script>
 const topMenu = document.getElementById("topMenu");
