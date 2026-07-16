@@ -3,585 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inbox</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Inbox | Wednesware</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/3c254bebea.js" crossorigin="anonymous"></script>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-    scroll-behavior: smooth;
-}
-
-.top-menu a:hover::before {
-    opacity: .25;
-}
-
-
-.top-menu a:active {
-    transform: scale(.95);
-}
-
-body {
-    background: #050505;
-    color: #f5f5f5;
-    font-family: 'Inter', sans-serif;
-}
-
-section {
-    min-height: 100vh;
-    display: flex;
-    padding: 4rem 1.5rem;
-}
-
-#wednesware {
-    align-items: center;
-    justify-content: center;
-}
-
-.container {
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.hero {
-    font-size: 1px;
-    gap: 1rem;
-}
-
-.feature-row {
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    gap: 1rem;
-    padding-bottom: 1rem;
-}
-
-.divider {
-    width: 64px;
-    height: 1px;
-    background: rgba(255,255,255,.4);
-    margin: 2rem auto;
-}
-
-.subtitle {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    color: #777;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.scroll-text {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: #aaa;
-    max-width: 700px;
-    margin: 0 auto;
-    padding-top: 2em;
-}
-
-.project-title {
-    font-size: 1em;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-}
-
-.article-title {
-    font-size: 1.5em;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
-.article-icon {
-    font-size: 2em;
-    line-height: 1.2em;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.textbg {
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nitrogen {
-    background-image: linear-gradient(
-        90deg,
-        #ff4d4d,
-        #ffb84d,
-        #ff4d9d
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 5s;
-}
-
-.magnesium {
-    background-image: linear-gradient(
-        90deg,
-        #4dd4ff,
-        #4dff88,
-        #7a4dff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 6.5s;
-}
-
-.helium {
-    background-image: linear-gradient(
-        90deg,
-        #ffd54d,
-        #ff6fd8,
-        #4de1ff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-}
-
-.sodium {
-    background-image: linear-gradient(
-        90deg,
-        #00ff15,
-        #0d460b,
-        #0a8006
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.krypton {
-    background-image: linear-gradient(
-        90deg,
-        #ff0000,
-        #bd3838,
-        #ee6f6f
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.neon {
-    background-image: linear-gradient(
-        90deg,
-        #886926,
-        #008cff,
-        #f83232
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.oxygen {
-    background-image: linear-gradient(
-        90deg,
-        #864da0,
-        #b5b5eb
-    );
-    animation: gradientMove 9s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.lithium {
-    background-image: linear-gradient(
-        90deg,
-        #00e1ff,
-        #008cff,
-        #4de1ff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-}
-
-.rainbow {
-    background-image: linear-gradient(
-        90deg,
-        #ff0000,
-        #ff7f00,
-        #ffff00,
-        #00ff00,
-        #00ffff,
-        #0000ff,
-        #8b00ff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.project-desc {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: #777;
-    line-height: 1.7;
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.buttons {
-    margin-top: 3rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: .9rem 1.5rem;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: opacity .2s ease;
-}
-
-.btn:hover { opacity: .7; }
-
-.btn-primary {
-    background: white;
-    color: black;
-    margin-bottom: 15px;
-}
-
-.btn-github {
-    background: #303030;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.btn-discord {
-    background: #5865F2;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.btn-pypi {
-    background: #006D77;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.btn-secondary {
-    border: 1px solid #333;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.icon {
-    font-size: 1em;
-    line-height: 1;
-    flex-shrink: 0;
-}
-
-.down-arrow {
-    color: #aaa;
-    font-size: 3em;
-}
-
-.code {
-  display: block;
-  padding: 1rem;
-  background: #111;
-  color: #ddd;
-  font-family: monospace;
-  overflow-x: auto;
-  border-radius: 8px;
-  font-size: 3em;
-}
-
-.code-il {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    display: inline;
-    padding: 0.15em 0.35em;
-}
-
-.yellow {
-    color: #bae61b
-}
-
-.info {
-    font-size: 2em;
-}
-
-.cc {
-    cursor: pointer;
-    position: relative;
-}
-
-.copy-popup {
-    position: fixed;
-    padding: 6px 12px;
-    border-radius: 8px;
-    background: #222;
-    color: white;
-    font-size: 14px;
-    pointer-events: none;
-    z-index: 9999;
-    animation: fadeOut 1s forwards;
-}
-
-.unrel {
-    display: inline-block;
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: white;
-    background-color: #ff8800;
-    box-shadow: 0 4px 15px #aa4444;
-    border-radius: 8px;
-    padding: 0.25em 0.75em;
-    transform: translateY(-60px);
-    background-size: 300% 300%;
-    /* <span class="unrel">WIP</span> */
-}
-
-.unrel-il {
-    display: inline-block;
-    font-size: 0.9em;
-    margin-left: 4px;
-    padding: 0px 4px 0px 4px;
-    color: white;
-    background-color: #ff8800;
-    box-shadow: 0 4px 15px #aa4444;
-    border-radius: 8px;
-    background-size: 300% 300%;
-    /* <span class="unrel-il">WIP</span> */
-}
-
-.black {
-    color: #000;
-}
-
-.cte-prompt {
-    color: #777;
-    font-size: 1.2rem;
-    line-height: 2em;
-    transition: opacity .3s ease;
-}
-
-.attribution,
-.attribution-icon {
-    padding-top: 1em;
-    color: #2b2b2b;
-    line-height: 1.2em;
-    margin-right: -0.5em;
-}
-
-.para {
-    color: #777;
-    padding-bottom: 1em;
-}
-
-details[open] .cte-prompt {
-    opacity: 0;
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-}
-
-
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
-
-#bgTint {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    transition: background 0.6s ease;
-    background: #050505;
-}
-
-details {
-    width: 100%;
-}
-
-details .container {
-    overflow: hidden;
-}
-
-details:not([open]) .container {
-    display: none;
-}
-
-summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::after {
-    content: none;
-}
-
-details[open] summary::after {
-    transform: rotate(180deg);
-}
-
-footer {
-    text-align: center;
-    color: #555;
-    padding: 4rem 0;
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
-
-<body>
+<body data-page="inbox">
 <div id="bgTint"></div>
-</div>
-<section id="wednesware">
-    <div class="container">
-        <div class="row hero">
-            <i class="fa-solid fa-inbox icon"></i>
-            <h1 class="project-title">Inbox</h1>
-        </div>
-        <div class="divider"></div>
-        <p class="subtitle">Ever-growing open-source ecosystem.</p>
-        <div class="buttons">
-            <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-angle-left"></i>Back</a>
-        </div>
+<div class="bg-grid"></div>
+<nav class="glass-nav">
+    <div class="nav-inner">
+        <a class="brand" href="index.html">
+            <img src="transparentwhitesquare.png" alt="Wednesware logo">
+            <span>Wednesware</span>
+        </a>
+
+        <button class="nav-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" data-nav-links>
+            <li><a class="nav-home" href="index.html" data-page="home">Home</a></li>
+            <li><a class="nav-projects" href="projects.html" data-page="projects">Projects</a></li>
+            <li><a class="nav-inbox" href="inbox.html" data-page="inbox">Inbox</a></li>
+            <li><a class="nav-about" href="about.html" data-page="about">About</a></li>
+            <li><a class="nav-team" href="team.html" data-page="team">Team</a></li>
+            <li><a class="nav-contact" href="contact.html" data-page="contact">Contact</a></li>
+        </ul>
     </div>
-</section>
+</nav>
 
-
-
-<section>
-    <details>
-        <summary class="row">
-            <div class="row">
-                <i class="fa-solid fa-envelope article-icon"></i>
-                <h2 class="article-title">3.7.2026 | Welcome to Inbox - Your official Wednesware news!</h2>
-            </div>
-            <p class="cte-prompt">
-                Click to read more
-            </p>
-        </summary>
-        <div class="container">
-            <p class="para">
-                This is the first post on Inbox!
-                Here, we'll post occasional Wednesware-related news, patch notes and more for anyone with an internet connection to read.
-                All information is verified and sourced by Wednesware.
-            </p>
-            <p class="para">
-                Have a nice week!
-            </p>
-
-            <span class="row"><i class="fa-solid fa-marker attribution-icon"></i><p class="attribution"><a href="https://github.com/vesperyn">Kassidy (@vesperyn) from Wednesware</a></p></span>
+<main class="page-wrap shell">
+    <section class="hero reveal" data-color="neon">
+        <div class="hero-mark">
+            <i class="fa-solid fa-inbox"></i>
         </div>
-    </details>
-</section>
+        <h1>Wednesware Inbox</h1>
+        <p>Official updates, patch notes, and announcements from the Wednesware team.</p>
+    </section>
 
-<footer>
-    <p>When's where?</p>
-</footer>
-<script>
-function fitTitles() {
-    document.querySelectorAll(".hero").forEach(hero => {
-        const maxWidth = hero.parentElement.clientWidth;
-        let size = maxWidth * 0.18;
+    <section class="section reveal" data-color="oxygen">
+        <div class="section-head">
+            <h2>Latest</h2>
+            <p>Posts are archived here so anyone can track milestones and release movement.</p>
+        </div>
 
-        hero.style.fontSize = size + "px";
+        <div class="grid cards-2">
+            <article class="article">
+                <time datetime="2026-07-16">Jul 16, 2026</time>
+                <h3>Website rebuild, Perkeo/Lithium news, Oxygen rebranding and Krypton shelving.</h3>
+                <p>The wednesware.github.io website has been rebuilt with a responsive multi-page layout for a more professional look and more satisfying feel.</p>
+                <p>The Perkeo programming language and its ecosystem, Lithium have received massive progress from the team.</p>
+                <p>There is no estimated time until Lithium 26.1, but the parser and interpreter are basically finished, and libraries and built-ins are now in development.</p>
+                <p>Oxygen (the terminal color and animation library) has been renamed with Neon due to it being a more fitting name for this library in our opinion. The name Oxygen will now be used for an upcoming web/app framework that will start development in the future.</p>
+                <p>Krypton (the encryption/decryption library) has been shelved for the time being as we work on other projects. Krypton may not return, or return as a completely different library. We may include Krypton's planned features in a future Magnesium release.</p>
+                <p class="notice">By Kassidy (@vesperyn) from Wednesware.</p>
+            </article>
+            <article class="article">
+                <time datetime="2026-07-03">Jul 3, 2026</time>
+                <h3>Welcome to Inbox</h3>
+                <p>This is the first post on Inbox. We will share Wednesware news, release notes, and verified updates here.</p>
+                <p>Have a nice day.</p>
+                <p class="notice">By Kassidy (@vesperyn) from Wednesware.</p>
+            </article>
+        </div>
+    </section>
 
-        while (hero.scrollWidth > maxWidth && size > 16) {
-            size--;
-            hero.style.fontSize = size + "px";
-        }
-    });
-}
-
-window.addEventListener("resize", fitTitles);
-fitTitles();
-
-document.querySelectorAll(".cc").forEach(code => {
-    code.addEventListener("click", async e => {
-        await navigator.clipboard.writeText(code.innerText);
-
-        const popup = document.createElement("div");
-        popup.className = "copy-popup";
-        popup.textContent = "Copied!";
-
-        popup.style.left = `${e.clientX}px`;
-        popup.style.top = `${e.clientY - 30}px`;
-
-        document.body.appendChild(popup);
-
-        setTimeout(() => popup.remove(), 1000);
-    });
-});
-
-function update() {
-    const [r, g, b] = getScrollColor();
-    bg.style.background = `
-        radial-gradient(
-            circle at center,
-            rgba(${r}, ${g}, ${b}, 0.14),
-            rgba(5,5,5,1) 70%
-        )
-    `;
-}
-window.addEventListener("scroll", update, { passive: true });
-update();
-
-async function loadRelease(card) {
-    const owner = "Wednesware";
-    const repo = card.dataset.repo;
-
-    try {
-        const res = await fetch(
-            `https://api.github.com/repos/${owner}/${repo}/releases/latest`
-        );
-        const release = await res.json();
-
-        card.innerHTML = `
-            <div class="release-version">${release.tag_name}</div>
-            <div class="release-date">
-                ${new Date(release.published_at).toLocaleDateString()}
+    <section class="section reveal" data-color="lithium">
+        <div class="card">
+            <div class="section-head">
+                <h2>Where to follow releases</h2>
+                <p>For build artifacts and changelogs, use the channels below.</p>
             </div>
-
-            <div class="release-notes">
-                ${(release.body || "No release notes.").slice(0, 400)}
+            <div class="button-row" style="justify-content: flex-start;">
+                <a class="btn btn-ghost" href="https://github.com/Wednesware" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub org</a>
+                <a class="btn btn-ghost" href="https://pypi.org/user/wednesware/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-python"></i> PyPI profile</a>
+                <a class="btn btn-ghost" href="https://discord.gg/phc3RDSjsr" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Discord server</a>
             </div>
+        </div>
+    </section>
 
-            <a class="release-download"
-               href="${release.html_url}"
-               target="_blank">
-                View Release
-            </a>
-        `;
-    } catch (e) {
-        card.innerHTML = `<div>Failed to load release</div>`;
-    }
-}
+    <footer class="footer">
+        <p>When's where?</p>
+        <p>Copyright <span data-year></span> Wednesware.</p>
+    </footer>
+</main>
 
-document.querySelectorAll(".release-card")
-    .forEach(loadRelease);
-</script>
+<script src="site.js"></script>
 </body>
 </html>

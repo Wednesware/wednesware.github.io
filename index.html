@@ -4,1369 +4,219 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wednesware</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/3c254bebea.js" crossorigin="anonymous"></script>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-    scroll-behavior: smooth;
-}
-
-.top-menu {
-    position: fixed;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .6rem;
-    overflow: visible;
-
-    padding: 0.6rem;
-    border-radius: 999px;
-
-    background: rgba(20,20,20,.65);
-    backdrop-filter: blur(6px);
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    z-index: 1000;
-    transition: all 0.35s cubic-bezier(.2,1.5,.5,1);
-}
-
-.menu-links {
-    display: flex;
-    gap: .6rem;
-
-    overflow: visible;
-    width: max-content;
-
-    opacity: 1;
-    transition: opacity .25s;
-}
-
-.top-menu.collapsed .menu-links {
-    max-width: 0;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.top-menu.collapsed {
-    width: 56px;
-}
-
-.top-menu:not(.collapsed) {
-    width: fit-content;
-}
-
-.top-menu:not(.collapsed) #menuToggle {
-    opacity: 0;
-    pointer-events: none;
-    width: 0;
-}
-
-#menuToggle {
-    all: unset;
-
-    width: 44px;
-    height: 44px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 999px;
-    cursor: pointer;
-    color: #aaa;
-    font-size: 1.15rem;
-
-    padding-left: 0.5em;
-
-    transition: opacity .2s;
-}
-
-#menuToggle:hover {
-    color: white;
-    transform:
-        scale(1.12);
-    transition:
-        transform .3s cubic-bezier(.2,1.5,.5,1),
-        padding .3s ease,
-        color .3s ease,
-        background-position .8s ease;
-}
-
-.top-menu-r {
-    left: auto;
-    right: 1.5rem;
-    transform: none;
-}
-
-.top-menu a {
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-
-    color: #aaa;
-    text-decoration: none;
-    font-weight: 600;
-
-    padding: .65rem 1.2rem;
-    border-radius: 999px;
-
-    background-size: 300% 300%;
-    
-    transition:
-        transform .3s cubic-bezier(.2,1.5,.5,1),
-        padding .3s ease,
-        color .3s ease,
-        background-position .8s ease;
-}
-
-
-/* Hover animation */
-.top-menu a:hover {
-    transform:
-        scale(1.12);
-
-    padding-left: 1.7rem;
-    padding-right: 1.7rem;
-
-    color: #000;
-
-    background-position: 100% 50%;
-}
-
-.top-menu-r {
-    transition: opacity .3s ease;
-}
-
-.top-menu-r a:hover {
-    color: #fff;
-}
-
-.wednesware-nav:hover {
-    background-color: #fff;
-}
-
-.nitrogen-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #ff4d4d,
-        #ffb84d,
-        #ff4d9d
-    );
-    animation: gradientMove 5s ease infinite;
-}
-
-.lithium-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #00e1ff,
-        #008cff,
-        #4de1ff
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-.magnesium-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #4dd4ff,
-        #4dff88,
-        #7a4dff
-    );
-    animation: gradientMove 6.5s ease infinite;
-}
-
-.helium-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #ffd54d,
-        #ff6fd8,
-        #4de1ff
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-.sodium-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #00ff15,
-        #0d460b,
-        #0a8006
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-.krypton-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #ff0000,
-        #bd3838,
-        #ee6f6f
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-.neon-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #864da0,
-        #b5b5eb
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-
-.oxygen-nav:hover {
-    background-image: linear-gradient(
-        90deg,
-        #886926,
-        #008cff,
-        #f83232
-    );
-    animation: gradientMove 7.5s ease infinite;
-}
-
-
-.top-menu a:hover::before {
-    opacity: .25;
-}
-
-
-.top-menu a:active {
-    transform: scale(.95);
-}
-
-body {
-    background: #050505;
-    color: #f5f5f5;
-    font-family: 'Inter', sans-serif;
-}
-
-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 1.5rem;
-}
-
-.container {
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.feature-row {
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    gap: 1rem;
-    padding-bottom: 1rem;
-}
-
-.hero-image {
-    width: clamp(6rem, 18vw, 17rem);
-    margin: auto;
-}
-
-.divider {
-    width: 64px;
-    height: 1px;
-    background: rgba(255,255,255,.4);
-    margin: 2rem auto;
-}
-
-.subtitle {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    color: #777;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.scroll-text {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: #aaa;
-    max-width: 700px;
-    margin: 0 auto;
-    padding-top: 2em;
-}
-
-.project-title {
-    font-size: clamp(6rem, 18vw, 15rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.textbg {
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nitrogen {
-    background-image: linear-gradient(
-        90deg,
-        #ff4d4d,
-        #ffb84d,
-        #ff4d9d
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 5s;
-}
-
-.magnesium {
-    background-image: linear-gradient(
-        90deg,
-        #4dd4ff,
-        #4dff88,
-        #7a4dff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 6.5s;
-}
-
-.helium {
-    background-image: linear-gradient(
-        90deg,
-        #ffd54d,
-        #ff6fd8,
-        #4de1ff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-}
-
-.sodium {
-    background-image: linear-gradient(
-        90deg,
-        #00ff15,
-        #0d460b,
-        #0a8006
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.krypton {
-    background-image: linear-gradient(
-        90deg,
-        #ff0000,
-        #bd3838,
-        #ee6f6f
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.neon {
-    background-image: linear-gradient(
-        90deg,
-        #864da0,
-        #b5b5eb
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.oxygen {
-    background-image: linear-gradient(
-        90deg,
-        #886926,
-        #008cff,
-        #f83232
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.lithium {
-    background-image: linear-gradient(
-        90deg,
-        #00e1ff,
-        #008cff,
-        #4de1ff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-}
-
-.rainbow {
-    background-image: linear-gradient(
-        90deg,
-        #ff0000,
-        #ff7f00,
-        #ffff00,
-        #00ff00,
-        #00ffff,
-        #0000ff,
-        #8b00ff
-    );
-    animation: gradientMove 6s ease infinite;
-    animation-duration: 7.5s;
-
-}
-
-.project-desc {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: #777;
-    line-height: 1.7;
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.project-icons {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: #777;
-    line-height: 1.7;
-    margin-top: 1.5rem;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    display: flex;
-}
-
-.project-icons img {
-    width: 1em;
-    filter: brightness(50%)
-}
-
-.buttons {
-    margin-top: 3rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: .9rem 1.5rem;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: opacity .2s ease;
-}
-
-.btn:hover { opacity: .7; }
-
-.btn-primary {
-    background: white;
-    color: black;
-    margin-bottom: 15px;
-}
-
-.btn-github {
-    background: #303030;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.btn-discord {
-    background: #5865F2;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.btn-pypi {
-    background: #006D77;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.btn-secondary {
-    border: 1px solid #333;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.icon {
-    font-size: clamp(6rem, 18vw, 15rem);
-    line-height: 1.2;
-
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: gradientMove 6s ease infinite;
-}
-
-.feature-title {
-    font-size: clamp(2rem, 2.5vw, 2rem);
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    padding-right: 1rem;
-    white-space: nowrap;
-}
-
-.feature-icon {
-    font-size: clamp(2rem, 2.5vw, 2rem);
-    line-height: 1.5;
-
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: gradientMove 6s ease infinite;
-}
-.feature-desc {
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: #777;
-    margin-top: 1.5rem;
-    transform: translateY(-20px);
-}
-
-.down-arrow {
-    color: #aaa;
-    font-size: 3em;
-}
-
-.code {
-  display: block;
-  padding: 1rem;
-  background: #111;
-  color: #ddd;
-  font-family: monospace;
-  overflow-x: auto;
-  border-radius: 8px;
-  font-size: 3em;
-}
-
-.code-il {
-    display: inline;
-    padding: 0.15em 0.35em;
-    background: #111;
-    color: #ddd;
-    font-family: monospace;
-    overflow-x: auto;
-    border-radius: 8px;
-}
-
-.bold {
-    font-weight: 1000;
-}
-
-.yellow {
-    color: #bae61b
-}
-
-.white {
-    color: white;
-}
-
-.info {
-    font-size: 2em;
-    text-align: center;
-}
-
-.cc {
-    cursor: pointer;
-    position: relative;
-}
-
-.copy-popup {
-    position: fixed;
-    padding: 6px 12px;
-    border-radius: 8px;
-    background: #222;
-    color: white;
-    font-size: 14px;
-    pointer-events: none;
-    z-index: 9999;
-    animation: fadeOut 1s forwards;
-}
-
-.unrel {
-    display: inline-block;
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    color: white;
-    background-color: #ff8800;
-    box-shadow: 0 4px 15px #aa4444;
-    border-radius: 8px;
-    padding: 0.25em 0.75em;
-    transform: translateY(-60px);
-    background-size: 300% 300%;
-    /* <span class="unrel">WIP</span> */
-}
-
-.unrel-il {
-    display: inline-block;
-    font-size: 0.9em;
-    margin-left: 4px;
-    padding: 0px 4px 0px 4px;
-    color: white;
-    background-color: #ff8800;
-    box-shadow: 0 4px 15px #aa4444;
-    border-radius: 8px;
-    background-size: 300% 300%;
-    /* <span class="unrel-il">WIP</span> */
-}
-
-.black {
-    color: #000;
-}
-
-.small-bold {
-    color: #777;
-    font-weight: 1000;
-}
-
-.cte-prompt {
-    color: #777;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 1rem;
-    transition: opacity .3s ease;
-}
-
-details[open] .cte-prompt {
-    opacity: 0;
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
-
-#bgTint {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    transition: background 0.6s ease;
-    background: #050505;
-}
-
-details {
-    width: 100%;
-    align-items: center;
-}
-
-details .container {
-    overflow: hidden;
-}
-
-details:not([open]) .container {
-    display: none;
-}
-
-summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::after {
-    content: none;
-}
-
-details[open] summary::after {
-    transform: rotate(180deg);
-}
-
-footer {
-    text-align: center;
-    color: #555;
-    padding: 4rem 0;
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
-
-<body>
+<body data-page="home">
 <div id="bgTint"></div>
-<nav class="top-menu collapsed" id="topMenu">
-    <button id="menuToggle">
-        <i class="fa-solid fa-bars"></i>
-    </button>
+<div class="bg-grid"></div>
+<nav class="glass-nav">
+    <div class="nav-inner">
+        <a class="brand" href="index.html">
+            <img src="transparentwhitesquare.png" alt="Wednesware logo">
+            <span>Wednesware</span>
+        </a>
 
-    <div class="menu-links">
-        <a class="wednesware-nav" href="#wednesware">Wednesware</a>
-        <a class="nitrogen-nav" href="#nitrogen">Nitrogen</a>
-        <a class="lithium-nav" href="#lithium">Lithium</a>
-        <a class="magnesium-nav" href="#magnesium">Magnesium</a>
-        <a class="helium-nav" href="#helium">Helium</a>
-        <a class="sodium-nav" href="#sodium"><span>Sodium <span class="unrel-il">WIP</p></span></a>
-        <!--<a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>-->
-        <a class="neon-nav" href="#neon">Neon</a>
-        <a class="oxygen-nav" href="#oxygen">Oxygen</a>
+        <button class="nav-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" data-nav-links>
+            <li><a class="nav-home" href="index.html" data-page="home">Home</a></li>
+            <li><a class="nav-projects" href="projects.html" data-page="projects">Projects</a></li>
+            <li><a class="nav-inbox" href="inbox.html" data-page="inbox">Inbox</a></li>
+            <li><a class="nav-about" href="about.html" data-page="about">About</a></li>
+            <li><a class="nav-team" href="team.html" data-page="team">Team</a></li>
+            <li><a class="nav-contact" href="contact.html" data-page="contact">Contact</a></li>
+        </ul>
     </div>
 </nav>
 
-<nav class="top-menu top-menu-r" id="rightMenu">
-    <a class="inbox-nav" href="inbox.html"><i class="fa-solid fa-inbox"></i> Inbox</a>
-</nav>
-</div>
-<section id="wednesware">
-    <div class="container">
-        <div class="row">
-            <img src="transparentwhitesquare.png" class="hero-image">
-            <h1 class="project-title">Wednesware</h1>
+<main class="page-wrap shell">
+    <section class="hero reveal" data-color="nitrogen">
+        <div class="hero-mark">
+            <img src="transparentwhitesquare.png" alt="Wednesware mark">
         </div>
-        <div class="divider"></div>
-        <p class="subtitle">Ever-growing open-source ecosystem.</p>
-        <div class="buttons">
-            <a href="inbox.html" class="btn btn-primary"><i class="fa-solid fa-inbox"></i> Inbox</a>
-            <a href="https://github.com/Wednesware" class="btn btn-github" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a href="https://discord.gg/phc3RDSjsr" class="btn btn-discord" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
-            <a href="https://pypi.org/user/wednesware/" class="btn btn-pypi" target="_blank"><i class="fa-brands fa-python"></i> PyPI</a>
-            <a href="mailto:wednesware@gmail.com" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-envelope"></i> Contact us</a>
+        <h1>Build with Wednesware</h1>
+        <p>
+            An open-source ecosystem of developer tooling, runtime libraries, and framework components
+            designed for fast setup and smooth iteration.
+        </p>
+        <div class="button-row">
+            <a class="btn btn-primary" href="projects.html"><i class="fa-solid fa-diagram-project"></i> Explore projects</a>
+            <a class="btn btn-ghost" href="https://github.com/Wednesware" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="btn btn-ghost" href="https://discord.gg/phc3RDSjsr" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Discord</a>
+            <a class="btn btn-ghost" href="https://pypi.org/user/wednesware/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-python"></i> PyPI</a>
         </div>
-        <a href="#nitrogen"><p class="scroll-text">Scroll down to see what we make</p><i class="fa-solid fa-angle-down down-arrow"></i></a>
-    </div>
-</section>
-
-<section data-color="nitrogen" id="nitrogen">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-download icon nitrogen"></i>
-                <h2 class="project-title nitrogen textbg">Nitrogen</h2>
-            </div>
-            <h3 class="feature-desc info">aka <span class="nitrogen textbg"><b>n2</b></span>, <span class="nitrogen textbg"><b>wwn</b></span></h3>
-            <p class="project-desc">
-                Easy, ultra-lightweight installer for Wednesware publications.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <img src="pypimonochrome.png">
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Nitrogen" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="https://pypi.org/project/wwn/" class="btn btn-pypi" target="_blank"><i class="fa-brands fa-python"></i> PyPI</a>
-            </div>
-            <pre><code class="code cc"><span class="yellow"><b>pipx</b></span> install <span class="nitrogen textbg">wwn</span></code></pre>
-            <div class="divider"></div>
-            <div class="feature-row">
-                <i class="fa-solid fa-cube feature-icon nitrogen"></i>
-                <h2 class="feature-title nitrogen textbg">NitroDep</h2>
-                <p class="feature-desc">
-                    Smart installation of dependencies on supported software.
-                </p>
-            </div>
-            <div class="feature-row">
-                <i class="fa-solid fa-gauge-high feature-icon nitrogen"></i>
-                <h2 class="feature-title nitrogen textbg">Blazing fast!</h2>
-                <p class="feature-desc">
-                    Standard installations average 0.25 seconds.
-                </p>
-            </div>
-            <div class="feature-row">
-                <i class="fa-solid fa-file-circle-check feature-icon nitrogen"></i>
-                <h2 class="feature-title nitrogen textbg">Officially supported</h2>
-                <p class="feature-desc">
-                    Publications are always up to date and verified.
-                </p>
+        <div class="ticker">
+            <div class="ticker-track" aria-hidden="true">
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-nitrogen">Nitrogen</span> installer pipeline</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-lithium">Lithium</span> language ecosystem</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-magnesium">Magnesium</span> shared internals</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-helium">Helium</span> project toolkit</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-sodium">Sodium</span> plugin marketplace</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-neon">Neon</span> terminal visuals</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-oxygen">Oxygen</span> web/app framework</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-nitrogen">Nitrogen</span> installer pipeline</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-lithium">Lithium</span> runtime ecosystem</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-magnesium">Magnesium</span> shared internals</span>
+                <span class="ticker-item"><span class="pulse-dot"></span><span class="pub pub-helium">Helium</span> project toolkit</span>
             </div>
         </div>
-    </details>
-</section>
+    </section>
 
-<section data-color="lithium" id="lithium">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-diamond icon lithium"></i>
-                <h2 class="project-title lithium textbg">Lithium</h2>
-                <span class="unrel">INDEV</span>
-            </div>
-            <h3 class="feature-desc info">aka <span class="lithium textbg"><b>wwli</b></span></h3>
-            <p class="project-desc">
-                Official interpreter and ecosystem for the Perkeo programming language.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <img src="pypimonochrome.png">
-               <span class="nitrogen textbg bold">n2</span>
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
-
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Lithium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-            <p class="small-bold">CLI INSTALL (RECOMMENDED):</p>
-            <pre><code class="code cc"><span class="yellow"><b>pipx</b></span> install <span class="lithium textbg">wwli</span></code></pre>
-            <p class="small-bold">LIBRARY INSTALL:</p>
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="lithium textbg">lithium</span></code></pre>
-            <div class="divider"></div>
-            <p>Section WIP.</p>
-            <!--<div class="feature-row">
-                <i class="fa-solid fa-plug-circle-check feature-icon sodium"></i>
-                <h2 class="feature-title sodium textbg">PluginDep</h2>
-                <p class="feature-desc">
-                    Easily install necessary plugins.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-code-fork feature-icon sodium"></i>
-                <h2 class="feature-title sodium textbg">Based on Nitrogen</h2>
-                <p class="feature-desc">
-                    <span class="nitrogen textbg">Nitrogen</span>'s syntax, smart features and tricks will also work in <span class="sodium textbg">Sodium</span>.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-virus-covid-slash feature-icon sodium"></i>
-                <h2 class="feature-title sodium textbg">Malware-free guarantee</h2>
-                <p class="feature-desc">
-                    Plugins are checked for slow or unsafe code before every release and update.
-                </p>
-            </div>-->
+    <section class="section reveal" data-color="lithium">
+        <div class="section-head">
+            <h2>Flagship releases</h2>
+            <p>Core tools in the Wednesware stack. Each one ships separately and can be installed only when you need it.</p>
         </div>
-    </details>
-</section>
 
-<section data-color="magnesium" id="magnesium">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-microchip icon magnesium"></i>
-                <h2 class="project-title magnesium textbg">Magnesium</h2>
+        <p class="section-label">Perkeo</p>
+        <h3 class="section-title">True modern coding</h3>
+        <article class="project-item project-item-featured">
+            <div class="project-main">
+                <span class="pill">Recommended</span>
+                <h3><span class="pub pub-lithium">Perkeo + Lithium</span></h3>
+                <p class="project-meta">Interpreter and runtime ecosystem for the Perkeo language.</p>
+                <details class="install-dropdown">
+                    <summary>
+                        <span class="mono">Install methods</span>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </summary>
+                    <div class="install-options">
+                        <p class="install-note">Choose the command that fits your workflow.</p>
+                        <span><span class="code-chip mono">pipx install pko</span><span class="install-note"> (recommended)</span></span>
+                        <span class="code-chip mono">yay -S pko</span>
+                        <span><span class="code-chip mono">n2 get lithium</span><span class="install-note"> (library only)</span></span>
+                    </div>
+                </details>
             </div>
-            <p class="project-desc">
-                Shared library for all Wednesware publications.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <span class="nitrogen textbg bold">n2</span>
+            <span class="status wip">IN DEVELOPMENT</span>
+            <div class="project-end">
+                <a class="project-github" href="https://github.com/Wednesware/Lithium" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
             </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
+        </article>
+        <p class="section-label">Publications</p>
+        <h3 class="section-title">Production-ready tools</h3>
 
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Magnesium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
+        <div class="project-list">
+            <article class="project-item">
+                <div class="project-main">
+                    <h3><span class="pub pub-nitrogen">Nitrogen</span></h3>
+                    <p class="project-meta">Ultra-light installer for official Wednesware publications.</p>
+                    <span class="code-chip mono">pipx install wwn</span>
+                </div>
+                <span class="status live">LIVE</span>
+                <div class="project-end">
+                    <a class="project-github" href="https://github.com/Wednesware/Nitrogen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
 
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="magnesium textbg">magnesium</span></code></pre>
+            <article class="project-item">
+                <div class="project-main">
+                    <h3><span class="pub pub-magnesium">Magnesium</span></h3>
+                    <p class="project-meta">Shared utility library powering logging, config and data structures.</p>
+                    <span class="code-chip mono">n2 get magnesium</span>
+                </div>
+                <span class="status live">LIVE</span>
+                <div class="project-end">
+                    <a class="project-github" href="https://github.com/Wednesware/Magnesium" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="divider"></div>
+            <article class="project-item">
+                <div class="project-main">
+                    <h3><span class="pub pub-helium">Helium</span></h3>
+                    <p class="project-meta">Project and game creation toolkit with modular script architecture.</p>
+                    <span class="code-chip mono">n2 get helium</span>
+                </div>
+                <span class="status live">LIVE</span>
+                <div class="project-end">
+                    <a class="project-github" href="https://github.com/Wednesware/Helium" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="feature-row">
-                <i class="fa-solid fa-terminal feature-icon magnesium"></i>
-                <h2 class="feature-title magnesium textbg">Logging & Color</h2>
-                <p class="feature-desc">
-                    Beautiful terminal output with formatted logging, sublogging, 140+ CSS-inspired colors, and RGB support.
-                </p>
-            </div>
+            <article class="project-item">
+                <div class="project-main">
+                    <h3><span class="pub pub-sodium">Sodium</span></h3>
+                    <p class="project-meta">Plugin and extension distribution channel for publications.</p>
+                    <span class="code-chip mono">n2 get sodium</span>
+                </div>
+                <span class="status wip">DEVELOPMENT QUEUED</span>
+                <div class="project-end">
+                    <a class="project-github" href="https://github.com/Wednesware/Sodium" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="feature-row">
-                <i class="fa-solid fa-gear feature-icon magnesium"></i>
-                <h2 class="feature-title magnesium textbg">Handle, Config & Paths</h2>
-                <p class="feature-desc">
-                    Simplify application setup with PYON-based configuration, automatic exception handling through decorators and easy file/path management.
-                </p>
-            </div>
+            <article class="project-item">
+                <div class="project-main">
+                    <h3><span class="pub pub-neon">Neon</span></h3>
+                    <p class="project-meta">Terminal effects toolkit for rich command-line visuals and interaction polish.</p>
+                    <span class="code-chip mono">n2 get neon</span>
+                </div>
+                <span class="status live">LIVE</span>
+                <div class="project-end">
+                    <a class="project-github" href="https://github.com/Wednesware/neon" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="feature-row">
-                <i class="fa-solid fa-cubes feature-icon magnesium"></i>
-                <h2 class="feature-title magnesium textbg">Lists & Groups</h2>
-                <p class="feature-desc">
-                    Powerful collection tools for organising objects, navigating multidimensional data, and managing complex structures.
-                </p>
-            </div>
+            <article class="project-item">
+                <div class="project-main">
+                    <h3><span class="pub pub-oxygen">Oxygen</span></h3>
+                    <p class="project-meta">App and web framework integrations for building products quickly.</p>
+                    <span class="code-chip mono">n2 get oxygen</span>
+                </div>
+                <span class="status wip">DEVELOPMENT QUEUED</span>
+                <div class="project-end">
+                    <a class="project-github" href="https://github.com/Wednesware/Oxygen" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                </div>
+            </article>
         </div>
-    </details>
-</section>
+    </section>
 
-<section data-color="helium" id="helium">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-diagram-project icon helium"></i>
-                <h2 class="project-title helium textbg">Helium</h2>
-            </div>
-            <p class="project-desc">
-                Game and project creation library.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <span class="nitrogen textbg bold">n2</span>
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
-
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Helium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="helium textbg">helium</span></code></pre>
-
-            <div class="divider"></div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-circle-nodes feature-icon helium"></i>
-                <h2 class="feature-title helium textbg">Projects</h2>
-                <p class="feature-desc">
-                    Create and manage modular projects with zero boilerplate.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-scroll feature-icon helium"></i>
-                <h2 class="feature-title helium textbg">Scripts</h2>
-                <p class="feature-desc">
-                    Organize project logic into dynamically loaded scripts.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-cubes-stacked feature-icon helium"></i>
-                <h2 class="feature-title helium textbg">Resources</h2>
-                <p class="feature-desc">
-                    Store reusable classes and components as project resources.
-                </p>
-            </div>
+    <section class="section reveal" data-color="magnesium">
+        <div class="section-head">
+            <h2>What makes it different</h2>
         </div>
-    </details>
-</section>
-
-<section data-color="sodium" id="sodium">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-plug icon sodium"></i>
-                <h2 class="project-title sodium textbg">Sodium</h2>
-                <span class="unrel">WIP</span>
-            </div>
-            <p class="project-desc">
-                Get official and community-made plugins and extensions to expand your publications.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <span class="nitrogen textbg bold">n2</span>
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
-
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Sodium" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="sodium textbg">sodium</span></code></pre>
-
-            <div class="divider"></div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-plug-circle-check feature-icon sodium"></i>
-                <h2 class="feature-title sodium textbg">PluginDep</h2>
-                <p class="feature-desc">
-                    Easily install necessary plugins.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-code-fork feature-icon sodium"></i>
-                <h2 class="feature-title sodium textbg">Based on Nitrogen</h2>
-                <p class="feature-desc">
-                    <span class="nitrogen textbg">Nitrogen</span>'s syntax, smart features and tricks will also work in <span class="sodium textbg">Sodium</span>.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-virus-covid-slash feature-icon sodium"></i>
-                <h2 class="feature-title sodium textbg">Malware-free guarantee</h2>
-                <p class="feature-desc">
-                    Plugins are checked for slow or unsafe code before every release and update.
-                </p>
-            </div>
+        <div class="grid cards-3">
+            <article class="card">
+                <span class="pill">Performance first</span>
+                <h3>Fast install flow</h3>
+                <p>Publication installs are optimized around low overhead and minimal setup friction.</p>
+            </article>
+            <article class="card">
+                <span class="pill">Cross-platform</span>
+                <h3>Same stack everywhere</h3>
+                <p>Designed for Linux, macOS and Windows workflows with Python-native tooling.</p>
+            </article>
+            <article class="card">
+                <span class="pill">Open ecosystem</span>
+                <h3>Community-friendly</h3>
+                <p>Public repos, package index releases, and direct communication through Inbox and Discord.</p>
+            </article>
         </div>
-    </details>
-</section>
+    </section>
 
-<section data-color="krypton" id="krypton">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-file-shield icon krypton"></i>
-                <h2 class="project-title krypton textbg">Krypton</h2>
-                <span class="unrel">WIP</span>
+    <section class="section reveal" data-color="oxygen">
+        <div class="card">
+            <div class="section-head">
+                <h2>Start in 30 seconds</h2>
+                <p>Install Nitrogen and grab your first package.</p>
             </div>
-            <p class="project-desc">
-                Encrypt, encode, and compress files using methods such as XOR, Base64 encoding, and Zstandard compression.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <span class="nitrogen textbg bold">n2</span>
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
-
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Krypton" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="krypton textbg">krypton</span></code></pre>
-
-            <div class="divider"></div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-floppy-disk feature-icon krypton"></i>
-                <h2 class="feature-title krypton textbg">Save files</h2>
-                <p class="feature-desc">
-                    Built-in support to save and load to and from compressed files.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-code feature-icon krypton"></i>
-                <h2 class="feature-title krypton textbg">Easy syntax</h2>
-                <p class="feature-desc">
-                    Write scripts with <span class="krypton textbg">Krypton</span> quickly and efficiently.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-memory feature-icon krypton"></i>
-                <h2 class="feature-title krypton textbg">Rapid operations</h2>
-                <p class="feature-desc">
-                    Operations performed swiftly and elegantly.
-                </p>
-            </div>
+            <p class="mono code-chip">pipx install wwn</p>
+            <p class="mono code-chip">n2 get magnesium</p>
         </div>
-    </details>
-</section>
+    </section>
 
-<section data-color="neon" id="neon">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-fire icon neon"></i>
-                <h2 class="project-title neon textbg">Neon</h2>
-            </div>
-            <p class="project-desc">
-                Smooth console animations, dynamic color gradients, formatted text panels and terminal control.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <span class="nitrogen textbg bold">n2</span>
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
+    <footer class="footer">
+        <p>Page designed and developed by Vesperyn.</p>
+        <p>Copyright <span data-year></span> Wednesware.</p>
+    </footer>
+</main>
 
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/neon" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="neon textbg">neon</span></code></pre>
-
-            <div class="divider"></div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-person-running feature-icon neon"></i>
-                <h2 class="feature-title neon textbg">Animations</h2>
-                <p class="feature-desc">
-                    Easy and customizable console-based text animations with fades, pulses, etc. 
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-paint-roller feature-icon neon"></i>
-                <h2 class="feature-title neon textbg">Gradients</h2>
-                <p class="feature-desc">
-                    Create fading gradients for your text to make it pop.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-wand-sparkles feature-icon neon"></i>
-                <h2 class="feature-title neon textbg">Panels & terminal control</h2>
-                <p class="feature-desc">
-                    Customizable panels and tools to move around the terminal and output content.
-                </p>
-            </div>
-        </div>
-    </details>
-</section>
-
-<section data-color="oxygen" id="oxygen">
-    <details>
-        <summary>
-            <div class="row">
-                <i class="fa-solid fa-globe icon oxygen"></i>
-                <h2 class="project-title oxygen textbg">Oxygen</h2>
-            </div>
-            <p class="project-desc">
-                Smooth console animations, dynamic color gradients, formatted text panels and terminal control.
-            </p>
-            <div class="project-icons">
-               <i class="fa-brands fa-windows"></i>
-               <i class="fa-brands fa-linux"></i>
-               <i class="fa-brands fa-apple"></i>
-               |
-               <i class="fa-brands fa-python"></i>
-               <img src="transparentperkeomonochrome.png">
-               |
-               <span class="nitrogen textbg bold">n2</span>
-            </div>
-            <p class="cte-prompt">
-                Click to expand
-            </p>
-        </summary>
-
-        <div class="container">
-            <div class="buttons">
-                <a href="https://github.com/Wednesware/Oxygen" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-
-            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="oxygen textbg">oxygen</span></code></pre>
-
-            <div class="divider"></div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-person-running feature-icon oxygen"></i>
-                <h2 class="feature-title oxygen textbg">Animations</h2>
-                <p class="feature-desc">
-                    Easy and customizable console-based text animations with fades, pulses, etc. 
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-paint-roller feature-icon oxygen"></i>
-                <h2 class="feature-title oxygen textbg">Gradients</h2>
-                <p class="feature-desc">
-                    Create fading gradients for your text to make it pop.
-                </p>
-            </div>
-
-            <div class="feature-row">
-                <i class="fa-solid fa-wand-sparkles feature-icon oxygen"></i>
-                <h2 class="feature-title oxygen textbg">Panels & terminal control</h2>
-                <p class="feature-desc">
-                    Customizable panels and tools to move around the terminal and output content.
-                </p>
-            </div>
-        </div>
-    </details>
-</section>
-<footer>
-    <p>Page designed and developed by Vesperyn (ves.dev). No AI was used in the creation of this site.</p>
-</footer>
-<script>
-const topMenu = document.getElementById("topMenu");
-const rightMenu = document.getElementById("rightMenu");
-
-let closeTimer;
-
-function openMenu() {
-    topMenu.classList.remove("collapsed");
-    rightMenu.style.opacity = "0";
-    rightMenu.style.pointerEvents = "none";
-}
-
-function closeMenu() {
-    topMenu.classList.add("collapsed");
-    rightMenu.style.opacity = "1";
-    rightMenu.style.pointerEvents = "auto";
-}
-
-menuToggle.onclick = openMenu;
-
-topMenu.addEventListener("mouseenter", () => {
-    clearTimeout(closeTimer);
-});
-
-topMenu.addEventListener("mouseleave", () => {
-    closeTimer = setTimeout(closeMenu, 1000);
-});
-
-function fitTitles() {
-    document.querySelectorAll(".row").forEach(row => {
-        const title = row.querySelector(".project-title");
-        if (!title) return;
-        let size = window.innerWidth * 0.18; // 18vw
-        title.style.fontSize = size + "px";
-        while (row.scrollWidth > row.clientWidth && size > 16) {
-            size -= 1;
-            title.style.fontSize = size + "px";
-        }
-    });
-}
-
-window.addEventListener("resize", fitTitles);
-fitTitles();
-    
-const bg = document.getElementById("bgTint");
-
-const colors = {
-    base: [5, 5, 5],
-    nitrogen: [255, 77, 90],
-    magnesium: [41, 207, 255],
-    helium: [255, 122, 217],
-    sodium: [0, 201, 26],
-    krypton: [255, 0, 0],
-    neon: [134, 77, 160],
-    oxygen: [255, 120, 255],
-    lithium: [0, 184, 255]
-};
-
-const sections = [...document.querySelectorAll("section[data-color]")];
-
-function lerp(a, b, t) {
-    return a + (b - a) * t;
-}
-
-function mix(c1, c2, t) {
-    return [
-        Math.round(lerp(c1[0], c2[0], t)),
-        Math.round(lerp(c1[1], c2[1], t)),
-        Math.round(lerp(c1[2], c2[2], t))
-    ];
-}
-
-function getScrollColor() {
-    const y = window.scrollY + window.innerHeight / 2;
-    let a = sections[0];
-    let b = sections[sections.length - 1];
-    for (let i = 0; i < sections.length; i++) {
-        if (sections[i].offsetTop <= y) {
-            a = sections[i];
-        }
-        if (sections[i].offsetTop > y) {
-            b = sections[i];
-            break;
-        }
-    }
-    const startY = a.offsetTop;
-    const endY = b.offsetTop || startY + 1;
-    const t = Math.min(1, Math.max(0, (y - startY) / (endY - startY)));
-    const c1 = colors[a.dataset.color];
-    const c2 = colors[b.dataset.color || a.dataset.color];
-    return mix(c1, c2, t);
-}
-
-function update() {
-    const [r, g, b] = getScrollColor();
-    bg.style.background = `
-        radial-gradient(
-            circle at center,
-            rgba(${r}, ${g}, ${b}, 0.14),
-            rgba(5,5,5,1) 70%
-        )
-    `;
-}
-document.querySelectorAll(".cc").forEach(code => {
-    code.addEventListener("click", async e => {
-        await navigator.clipboard.writeText(code.innerText);
-        const popup = document.createElement("div");
-        popup.className = "copy-popup";
-        popup.textContent = "Copied!";
-        popup.style.left = `${e.clientX}px`;
-        popup.style.top = `${e.clientY - 30}px`;
-        document.body.appendChild(popup);
-        setTimeout(() => popup.remove(), 1000);
-    });
-});
-window.addEventListener("scroll", update, { passive: true });
-update();
-</script>
+<script src="site.js"></script>
 </body>
 </html>
