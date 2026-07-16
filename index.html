@@ -213,6 +213,16 @@ html {
     animation: gradientMove 7.5s ease infinite;
 }
 
+.neon-nav:hover {
+    background-image: linear-gradient(
+        90deg,
+        #864da0,
+        #b5b5eb
+    );
+    animation: gradientMove 7.5s ease infinite;
+}
+
+
 .oxygen-nav:hover {
     background-image: linear-gradient(
         90deg,
@@ -366,6 +376,17 @@ section {
         #ff0000,
         #bd3838,
         #ee6f6f
+    );
+    animation: gradientMove 6s ease infinite;
+    animation-duration: 7.5s;
+
+}
+
+.neon {
+    background-image: linear-gradient(
+        90deg,
+        #864da0,
+        #b5b5eb
     );
     animation: gradientMove 6s ease infinite;
     animation-duration: 7.5s;
@@ -708,7 +729,8 @@ footer {
         <a class="magnesium-nav" href="#magnesium">Magnesium</a>
         <a class="helium-nav" href="#helium">Helium</a>
         <a class="sodium-nav" href="#sodium"><span>Sodium <span class="unrel-il">WIP</p></span></a>
-        <a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>
+        <!--<a class="krypton-nav" href="#krypton"><span>Krypton <span class="unrel-il">WIP</span></span></a>-->
+        <a class="neon-nav" href="#neon">Neon</a>
         <a class="oxygen-nav" href="#oxygen">Oxygen</a>
     </div>
 </nav>
@@ -814,7 +836,7 @@ footer {
                <img src="transparentperkeomonochrome.png">
                |
                <img src="pypimonochrome.png">
-               <span class="nitrogen textbg bold">n₂</span>
+               <span class="nitrogen textbg bold">n2</span>
             </div>
             <p class="cte-prompt">
                 Click to expand
@@ -876,7 +898,7 @@ footer {
                <i class="fa-brands fa-python"></i>
                <img src="transparentperkeomonochrome.png">
                |
-               <span class="nitrogen textbg bold">n₂</span>
+               <span class="nitrogen textbg bold">n2</span>
             </div>
             <p class="cte-prompt">
                 Click to expand
@@ -937,7 +959,7 @@ footer {
                <i class="fa-brands fa-python"></i>
                <img src="transparentperkeomonochrome.png">
                |
-               <span class="nitrogen textbg bold">n₂</span>
+               <span class="nitrogen textbg bold">n2</span>
             </div>
             <p class="cte-prompt">
                 Click to expand
@@ -999,7 +1021,7 @@ footer {
                <i class="fa-brands fa-python"></i>
                <img src="transparentperkeomonochrome.png">
                |
-               <span class="nitrogen textbg bold">n₂</span>
+               <span class="nitrogen textbg bold">n2</span>
             </div>
             <p class="cte-prompt">
                 Click to expand
@@ -1061,7 +1083,7 @@ footer {
                <i class="fa-brands fa-python"></i>
                <img src="transparentperkeomonochrome.png">
                |
-               <span class="nitrogen textbg bold">n₂</span>
+               <span class="nitrogen textbg bold">n2</span>
             </div>
             <p class="cte-prompt">
                 Click to expand
@@ -1104,11 +1126,72 @@ footer {
     </details>
 </section>
 
+<section data-color="neon" id="neon">
+    <details>
+        <summary>
+            <div class="row">
+                <i class="fa-solid fa-fire icon neon"></i>
+                <h2 class="project-title neon textbg">Neon</h2>
+            </div>
+            <p class="project-desc">
+                Smooth console animations, dynamic color gradients, formatted text panels and terminal control.
+            </p>
+            <div class="project-icons">
+               <i class="fa-brands fa-windows"></i>
+               <i class="fa-brands fa-linux"></i>
+               <i class="fa-brands fa-apple"></i>
+               |
+               <i class="fa-brands fa-python"></i>
+               <img src="transparentperkeomonochrome.png">
+               |
+               <span class="nitrogen textbg bold">n2</span>
+            </div>
+            <p class="cte-prompt">
+                Click to expand
+            </p>
+        </summary>
+
+        <div class="container">
+            <div class="buttons">
+                <a href="https://github.com/Wednesware/neon" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+
+            <pre><code class="code cc"><span class="nitrogen textbg"><b>n2</b></span> get <span class="neon textbg">neon</span></code></pre>
+
+            <div class="divider"></div>
+
+            <div class="feature-row">
+                <i class="fa-solid fa-person-running feature-icon neon"></i>
+                <h2 class="feature-title neon textbg">Animations</h2>
+                <p class="feature-desc">
+                    Easy and customizable console-based text animations with fades, pulses, etc. 
+                </p>
+            </div>
+
+            <div class="feature-row">
+                <i class="fa-solid fa-paint-roller feature-icon neon"></i>
+                <h2 class="feature-title neon textbg">Gradients</h2>
+                <p class="feature-desc">
+                    Create fading gradients for your text to make it pop.
+                </p>
+            </div>
+
+            <div class="feature-row">
+                <i class="fa-solid fa-wand-sparkles feature-icon neon"></i>
+                <h2 class="feature-title neon textbg">Panels & terminal control</h2>
+                <p class="feature-desc">
+                    Customizable panels and tools to move around the terminal and output content.
+                </p>
+            </div>
+        </div>
+    </details>
+</section>
+
 <section data-color="oxygen" id="oxygen">
     <details>
         <summary>
             <div class="row">
-                <i class="fa-solid fa-fire icon oxygen"></i>
+                <i class="fa-solid fa-globe icon oxygen"></i>
                 <h2 class="project-title oxygen textbg">Oxygen</h2>
             </div>
             <p class="project-desc">
@@ -1122,7 +1205,7 @@ footer {
                <i class="fa-brands fa-python"></i>
                <img src="transparentperkeomonochrome.png">
                |
-               <span class="nitrogen textbg bold">n₂</span>
+               <span class="nitrogen textbg bold">n2</span>
             </div>
             <p class="cte-prompt">
                 Click to expand
@@ -1220,6 +1303,7 @@ const colors = {
     helium: [255, 122, 217],
     sodium: [0, 201, 26],
     krypton: [255, 0, 0],
+    neon: [134, 77, 160],
     oxygen: [255, 120, 255],
     lithium: [0, 184, 255]
 };
